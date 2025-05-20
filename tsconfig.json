@@ -1,10 +1,12 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "module": "none",
+    "module": "ES6",
+    "moduleResolution": "node",
     "outDir": "./public/dist",
     "strict": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "lib": ["es2017", "dom"]
   },
   "include": ["src/main.ts"]
 }

@@ -1,0 +1,99 @@
+:root {
+    --bg-primary: #bdbdbd;
+    --bg-secondary: #aaaaaa;
+    --text-color: #333;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --shadow-dark: rgba(0, 0, 0, 0.2);
+}
+
+body.dark {
+    --bg-primary: #222;
+    --bg-secondary: #444;
+    --text-color: #f5f5f5;
+    --shadow-light: rgba(0, 0, 0, 0.3);
+    --shadow-dark: rgba(0, 0, 0, 0.5);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#app {
+    background-color: var(--bg-primary);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 45px;
+    transition: background-color 0.3s ease;
+}
+
+#welcome-title {
+    color: var(--text-color);
+    font-size: 7rem;
+    margin: 0;
+    text-align: center;
+    font-family: monospace;
+    transition: color 0.3s ease;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    width: 100%;
+}
+
+.btn-main {
+    background-color: var(--bg-secondary);
+    width: 20%;
+    height: 300px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 4px 4px 6px var(--shadow-light);
+}
+
+.btn-main:hover {
+    box-shadow: 6px 6px 8px var(--shadow-dark);
+}
+
+.top-controls {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+#contact-button, #theme-toggle {
+    width: 55px;
+    height: 55px;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--bg-secondary);
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 4px 4px 6px var(--shadow-light);
+}
+
+#contact-button:hover, #theme-toggle:hover {
+    box-shadow: 6px 6px 8px var(--shadow-dark);
+}
+
+.bi {
+    color: var(--text-color);
+    font-size: 1.3rem;
+    transition: color 0.3s ease;
+}
