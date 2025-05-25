@@ -34,11 +34,20 @@ body {
 
 #welcome-title {
     color: var(--text-color);
-    font-size: 7rem;
+    font-size: 6rem;
     margin: 0;
     text-align: center;
     font-family: monospace;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    text-shadow: 3px 3px 5px var(--shadow-light);
+}
+
+body.dark #welcome-title {
+    text-shadow: 3px 3px 6px var(--shadow-dark);
+}
+
+#welcome-title:hover {
+    text-shadow: 4px 4px 8px var(--shadow-dark);
 }
 
 .buttons-container {
@@ -53,6 +62,8 @@ body {
     background-color: var(--bg-secondary);
     width: 20%;
     height: 300px;
+    min-width: 250px;
+    min-height: 80px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -96,4 +107,261 @@ body {
     color: var(--text-color);
     font-size: 1.3rem;
     transition: color 0.3s ease;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.modal-open {
+  overflow: hidden;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Media queries organizadas de mayor a menor tamaño */
+
+/* Para pantallas grandes (escritorio) */
+@media (min-width: 1025px) {
+  .btn-main {
+    width: 20%;
+    height: 300px;
+    min-width: 250px;
+  }
+}
+
+/* Tablets grandes y pantallas medianas */
+@media (min-width: 769px) and (max-width: 1024px) {
+  #app {
+    gap: 30px;
+  }
+  
+  #welcome-title {
+    font-size: 4.5rem;
+  }
+  
+  .buttons-container {
+    gap: 20px;
+  }
+  
+  .btn-main {
+    width: 22%;
+    height: 220px;
+    min-width: 200px;
+  }
+}
+
+/* Específico para iPad Air en portrait */
+@media (min-width: 820px) and (max-width: 834px) and (min-height: 1120px) {
+  .buttons-container {
+    flex-wrap: wrap;
+    width: 90%;
+    max-width: 800px;
+    justify-content: center;
+  }
+  
+  .btn-main {
+    width: 45%;
+    height: 200px;
+  }
+}
+
+/* Tablets medianas */
+@media (min-width: 481px) and (max-width: 768px) {
+  #app {
+    gap: 25px;
+  }
+  
+  #welcome-title {
+    font-size: 3.5rem;
+  }
+  
+  .buttons-container {
+    flex-wrap: wrap;
+    width: 90%;
+    max-width: 700px;
+    gap: 15px;
+    justify-content: center;
+  }
+  
+  .btn-main {
+    width: 45%;
+    height: 180px;
+    min-width: 0;
+  }
+  
+  #contact-button, #theme-toggle {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .modal-content {
+    max-width: 90%;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #app {
+    gap: 12px;
+    height: 100vh;
+    justify-content: center;
+    padding: 55px 15px 15px;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  
+  #welcome-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    margin-top: -100px;
+  }
+  
+  .buttons-container {
+    flex-direction: column;
+    width: 90%;
+    gap: 8px;
+    margin-top: -5px;
+  }
+  
+  .btn-main {
+    width: 100%;
+    height: 60px;
+    min-width: 0;
+    margin-bottom: 0;
+  }
+  
+  .top-controls {
+    top: 10px;
+    right: 10px;
+    gap: 10px;
+  }
+  
+  #contact-button, #theme-toggle {
+    width: 38px;
+    height: 38px;
+  }
+  
+  .bi {
+    font-size: 1.1rem;
+  }
+  
+  .modal-content {
+    max-width: 85%;
+    padding: 1.2rem;
+  }
+}
+
+@media (max-height: 700px) {
+  #app {
+    gap: 10px;
+  }
+  
+  #welcome-title {
+    font-size: calc(1.5rem + 2vh);
+  }
+  
+  .btn-main {
+    height: 8vh;
+    min-height: 40px;
+  }
+}
+
+@media (max-height: 500px) and (max-width: 480px) {
+  #app {
+    padding-top: 45px;
+    gap: 6px;
+  }
+  
+  #welcome-title {
+    font-size: 1.5rem;
+  }
+  
+  .btn-main {
+    height: 40px;
+    margin-bottom: 0;
+  }
+  
+  .top-controls {
+    top: 5px;
+    right: 5px;
+  }
+  
+  #contact-button, #theme-toggle {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+@media (max-height: 450px) {
+  #app {
+    padding: 40px 15px 15px;
+  }
+  
+  #welcome-title {
+    font-size: 1.2rem;
+    margin-top: 0;
+  }
+  
+  .buttons-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  
+  .btn-main {
+    width: 48%;
+    height: 35px;
+  }
+}
+
+@media (max-height: 350px) {
+  .top-controls {
+    top: 5px;
+  }
+  
+  #contact-button, #theme-toggle {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .bi {
+    font-size: 1rem;
+  }
+  
+  #welcome-title {
+    font-size: 1rem;
+  }
+  
+  .btn-main {
+    height: 30px;
+  }
 }
