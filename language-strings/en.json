@@ -1,3 +1,15 @@
 {
-    "welcome-title": "Jagoba Inda > Backend Developer"
+    "contact-title": "Contact Me",
+    "linkedin-text": "LinkedIn",
+    "email-text": "contact@jagoba.dev",
+    "github-text": "GitHub",
+    "resume-text": "Download Resume",
+    "projects-title": "Projects",
+    "technologies-title": "Technologies",
+    "experience-title": "Experience",
+    "about-me-title": "About Me",
+    "projects-btn-text": "Projects",
+    "technologies-btn-text": "Key skills",
+    "experience-btn-text": "Experience",
+    "about-me-btn-text": "About Me"
 }

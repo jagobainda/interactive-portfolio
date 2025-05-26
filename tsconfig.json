@@ -8,8 +8,5 @@
     "esModuleInterop": true,
     "lib": ["es2017", "dom"]
   },
-  "include": [
-    "src/main.ts",
-    "src/types/*.d.ts"
-  ]
+  "include": ["src/main.ts"]
 }

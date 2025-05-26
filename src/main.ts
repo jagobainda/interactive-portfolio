@@ -4,12 +4,18 @@ class App {
     constructor() {
         this.loadSavedTheme();
 
+        this.typeTitle();
+
         this.loadLanguageStrings();
 
         this.bindEvents();
     }
 
     private bindEvents(): void {
+        document.addEventListener("keydown", (event) =>
+            this.handleKeydown(event)
+        );
+
         const btnLightbulb = document.querySelector(
             "#theme-toggle"
         ) as HTMLButtonElement;
@@ -21,20 +27,66 @@ class App {
         ) as HTMLButtonElement;
         if (btnContacts)
             btnContacts.addEventListener("click", () =>
-                this.openConntactModal()
+                this.openModal("contact")
             );
 
-        const btnCloseModal = document.querySelector(
-            "#close-btn"
+        const btnProjects = document.querySelector(
+            "#btn-projects"
         ) as HTMLButtonElement;
-        if (btnCloseModal)
-            btnCloseModal.addEventListener("click", () => this.closeModal());
+        if (btnProjects)
+            btnProjects.addEventListener("click", () =>
+                this.openModal("projects")
+            );
+
+        const btnTechnologies = document.querySelector(
+            "#btn-technologies"
+        ) as HTMLButtonElement;
+        if (btnTechnologies)
+            btnTechnologies.addEventListener("click", () =>
+                this.openModal("technologies")
+            );
+
+        const btnExperience = document.querySelector(
+            "#btn-experience"
+        ) as HTMLButtonElement;
+        if (btnExperience)
+            btnExperience.addEventListener("click", () =>
+                this.openModal("experience")
+            );
+
+        const btnAboutMe = document.querySelector(
+            "#btn-about-me"
+        ) as HTMLButtonElement;
+        if (btnAboutMe)
+            btnAboutMe.addEventListener("click", () =>
+                this.openModal("about-me")
+            );
+
+        const closeButtons = document.querySelectorAll(".close-btn");
+        closeButtons.forEach((btn) => {
+            btn.addEventListener("click", () => this.closeModal());
+        });
+    }
+
+    private loadSavedTheme(): void {
+        const savedTheme = localStorage.getItem("jidev_theme") || "light";
+        document.body.classList.toggle("dark", savedTheme === "dark");
+
+        const icon = document.querySelector(
+            "#theme-toggle i"
+        ) as HTMLIFrameElement;
+
+        if (!icon) return;
+
+        icon.classList.toggle("bi-lightbulb-fill", savedTheme === "light");
+        icon.classList.toggle("bi-lightbulb-off-fill", savedTheme === "dark");
     }
 
     private async loadLanguageStrings(): Promise<void> {
         const lang = navigator.language.toLowerCase().startsWith("es")
             ? "es"
             : "en";
+
         const path = `/language-strings/${lang}.json`;
 
         const res = await fetch(path);
@@ -49,26 +101,77 @@ class App {
         }
     }
 
-    private loadSavedTheme(): void {
-        const savedTheme = localStorage.getItem("jidev_theme") || "light";
-        document.body.classList.toggle("dark", savedTheme === "dark");
+    private typeTitle(): void {
+        const el = document.getElementById("welcome-title");
+        
+        if (!el) return;
 
-        const icon = document.querySelector(
-            "#theme-toggle i"
-        ) as HTMLIFrameElement;
-        if (icon) {
-            icon.classList.toggle("bi-lightbulb-fill", savedTheme === "light");
-            icon.classList.toggle(
-                "bi-lightbulb-off-fill",
-                savedTheme === "dark"
-            );
+        const base = " Jagoba Inda > ";
+        const fake = "Full sta";
+        const real = "Backend Developer";
+        const visitedKey = "jagoba_dev_visited";
+
+        const randomDelay = () => Math.floor(Math.random() * 21) + 40;
+
+        const write = (text: string, done: () => void) => {
+            let i = 0;
+            const step = () => {
+                if (i > text.length) {
+                    done();
+                    return;
+                }
+
+                el.textContent += text.charAt(i++);
+                setTimeout(step, randomDelay());
+            };
+            step();
+        };
+
+        const erase = (count: number, done: () => void) => {
+            let removed = 0;
+            const step = () => {
+                if (removed >= count) {
+                    done();
+                    return;
+                }
+
+                el.textContent = el.textContent!.slice(0, -1);
+                removed++;
+                setTimeout(step, randomDelay());
+            };
+            step();
+        };
+
+        const finalize = () => {
+            el.textContent = base + real;
+        };
+
+        const isDevelopment: boolean = !window.location.hostname.includes("jagoba.dev");
+
+        if (!isDevelopment && localStorage.getItem(visitedKey)) {
+            finalize();
+            return;
         }
+        
+        el.textContent = "";
+
+        write(base + fake, () =>
+            setTimeout(() =>
+                    erase(fake.length, () => {
+                        write(real, () => localStorage.setItem(visitedKey, "true"));
+                    }),
+                500
+            )
+        );
+    }
+
+    private handleKeydown(event: KeyboardEvent): void {
+        
     }
 
     private toggleTheme(): void {
-        const icon = document.querySelector(
-            "#theme-toggle i"
-        ) as HTMLIFrameElement;
+        const icon = document.querySelector("#theme-toggle i") as HTMLIFrameElement;
+        
         if (!icon) return;
 
         icon.classList.toggle("bi-lightbulb-fill");
@@ -78,11 +181,7 @@ class App {
         localStorage.setItem("jidev_theme", theme);
     }
 
-    private openConntactModal(): void {
-        this.openModal("contact");
-    }
-
-    private openModal(id: string) {
+    private openModal(id: string): void {
         const modal = document.getElementById(`modal-${id}`);
         if (!modal) return;
 
@@ -95,22 +194,23 @@ class App {
         anime.remove(content);
         anime({
             targets: content,
-            translateY: [-40, 0],
-            scale: [0.9, 1],
+            translateY: [-30, 0],
+            scale: [0.95, 1],
             opacity: [0, 1],
+            rotate: [-2, 0],
             boxShadow: [
                 "0px 0px 0px rgba(0,0,0,0)",
                 "0px 10px 25px rgba(0,0,0,0.2)",
             ],
-            duration: 700,
-            easing: "easeOutElastic(1, .6)",
+            duration: 400,
+            easing: "easeOutCubic",
             delay: 100,
         });
 
         history.pushState({ modal: id }, "", `#${id}`);
     }
 
-    private closeModal() {
+    private closeModal(): void {
         const modal = document.querySelector(".modal:not(.hidden)");
         if (!modal) return;
 
@@ -128,7 +228,7 @@ class App {
                 "0px 10px 25px rgba(0,0,0,0.2)",
                 "0px 0px 0px rgba(0,0,0,0)",
             ],
-            duration: 400,
+            duration: 250,
             easing: "easeInQuart",
             complete: () => {
                 modal.classList.add("hidden");

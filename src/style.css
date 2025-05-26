@@ -32,6 +32,15 @@ body {
     transition: background-color 0.3s ease;
 }
 
+.typing-cursor::after {
+  content: "|";
+  animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
 #welcome-title {
     color: var(--text-color);
     font-size: 6rem;
@@ -65,14 +74,50 @@ body.dark #welcome-title {
     min-width: 250px;
     min-height: 80px;
     border: none;
-    border-radius: 5px;
+    border-radius: 12px;
     cursor: pointer;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 4px 4px 6px var(--shadow-light);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 4px 4px 8px var(--shadow-light);
+    overflow: hidden;
+    position: relative;
+}
+
+.btn-main:before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    transform: translateY(100%);
+    z-index: 0;
 }
 
 .btn-main:hover {
-    box-shadow: 6px 6px 8px var(--shadow-dark);
+    box-shadow: 6px 6px 12px var(--shadow-dark);
+    transform: translateY(-5px);
+}
+
+.btn-main:hover:before {
+    transform: translateY(0);
+}
+
+.btn-main i {
+    font-size: 3.5rem;
+    z-index: 1;
+}
+
+.btn-text {
+    font-family: monospace;
+    font-size: 1.5rem;
+    font-weight: bold;
+    z-index: 1;
 }
 
 .top-controls {
@@ -128,12 +173,15 @@ body.dark #welcome-title {
 }
 
 .modal-content {
-  background: white;
+  background: var(--bg-primary);
+  color: var(--text-color);
   padding: 2rem;
   border-radius: 8px;
   max-width: 500px;
   width: 90%;
   position: relative;
+  box-shadow: 6px 6px 12px var(--shadow-dark);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .close-btn {
@@ -144,21 +192,67 @@ body.dark #welcome-title {
   background: none;
   border: none;
   cursor: pointer;
-  color: #333;
+  color: var(--text-color);
+  transition: color 0.3s ease;
 }
 
-/* Media queries organizadas de mayor a menor tamaño */
+.close-btn:hover {
+  color: #ff5252;
+}
 
-/* Para pantallas grandes (escritorio) */
+#contact-title {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-family: monospace;
+  font-size: 1.8rem;
+  text-shadow: 2px 2px 4px var(--shadow-light);
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 1rem;
+  text-decoration: none;
+  color: var(--text-color);
+  background-color: var(--bg-secondary);
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  box-shadow: 3px 3px 5px var(--shadow-light);
+}
+
+.contact-link:hover {
+  box-shadow: 4px 4px 8px var(--shadow-dark);
+  transform: translateY(-2px);
+}
+
+.contact-link i {
+  font-size: 1.5rem;
+}
+
 @media (min-width: 1025px) {
   .btn-main {
     width: 20%;
     height: 300px;
     min-width: 250px;
   }
+  
+  .btn-main i {
+    font-size: 3.5rem;
+  }
+  
+  .btn-text {
+    font-size: 1.5rem;
+  }
 }
 
-/* Tablets grandes y pantallas medianas */
 @media (min-width: 769px) and (max-width: 1024px) {
   #app {
     gap: 30px;
@@ -177,9 +271,12 @@ body.dark #welcome-title {
     height: 220px;
     min-width: 200px;
   }
+  
+  .btn-main i {
+    font-size: 3rem;
+  }
 }
 
-/* Específico para iPad Air en portrait */
 @media (min-width: 820px) and (max-width: 834px) and (min-height: 1120px) {
   .buttons-container {
     flex-wrap: wrap;
@@ -194,7 +291,6 @@ body.dark #welcome-title {
   }
 }
 
-/* Tablets medianas */
 @media (min-width: 481px) and (max-width: 768px) {
   #app {
     gap: 25px;
@@ -216,6 +312,14 @@ body.dark #welcome-title {
     width: 45%;
     height: 180px;
     min-width: 0;
+  }
+  
+  .btn-main i {
+    font-size: 2.5rem;
+  }
+  
+  .btn-text {
+    font-size: 1.3rem;
   }
   
   #contact-button, #theme-toggle {
@@ -241,15 +345,15 @@ body.dark #welcome-title {
   
   #welcome-title {
     font-size: 2rem;
-    margin-bottom: 30px;
-    margin-top: -100px;
+    margin-bottom: 20px;
+    margin-top: -60px;
   }
   
   .buttons-container {
     flex-direction: column;
     width: 90%;
-    gap: 8px;
-    margin-top: -5px;
+    gap: 10px;
+    margin-top: 0;
   }
   
   .btn-main {
@@ -257,6 +361,18 @@ body.dark #welcome-title {
     height: 60px;
     min-width: 0;
     margin-bottom: 0;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-left: 20px;
+  }
+  
+  .btn-main i {
+    font-size: 1.8rem;
+    margin-right: 15px;
+  }
+  
+  .btn-text {
+    font-size: 1.2rem;
   }
   
   .top-controls {
@@ -273,11 +389,6 @@ body.dark #welcome-title {
   .bi {
     font-size: 1.1rem;
   }
-  
-  .modal-content {
-    max-width: 85%;
-    padding: 1.2rem;
-  }
 }
 
 @media (max-height: 700px) {
@@ -287,6 +398,8 @@ body.dark #welcome-title {
   
   #welcome-title {
     font-size: calc(1.5rem + 2vh);
+    margin-bottom: 15px;
+    margin-top: -20px;
   }
   
   .btn-main {
@@ -295,51 +408,61 @@ body.dark #welcome-title {
   }
 }
 
-@media (max-height: 500px) and (max-width: 480px) {
+@media (max-height: 600px) and (max-width: 480px) {
   #app {
     padding-top: 45px;
-    gap: 6px;
+    gap: 8px;
   }
   
   #welcome-title {
     font-size: 1.5rem;
+    margin-top: -30px;
+    margin-bottom: 10px;
+  }
+  
+  .buttons-container {
+    gap: 8px;
   }
   
   .btn-main {
-    height: 40px;
-    margin-bottom: 0;
-  }
-  
-  .top-controls {
-    top: 5px;
-    right: 5px;
-  }
-  
-  #contact-button, #theme-toggle {
-    width: 32px;
-    height: 32px;
+    height: 50px;
   }
 }
 
-@media (max-height: 450px) {
+@media (max-height: 500px) {
   #app {
     padding: 40px 15px 15px;
   }
   
   #welcome-title {
-    font-size: 1.2rem;
-    margin-top: 0;
+    font-size: 1.5rem;
+    margin-top: -10px;
+    margin-bottom: 10px;
   }
   
   .buttons-container {
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 5px;
+    gap: 8px;
+    justify-content: center;
   }
   
   .btn-main {
     width: 48%;
-    height: 35px;
+    height: 40px;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-left: 15px;
+    gap: 10px;
+  }
+  
+  .btn-main i {
+    font-size: 1.4rem;
+    margin-right: 5px;
+  }
+  
+  .btn-text {
+    font-size: 1rem;
   }
 }
 
@@ -359,9 +482,23 @@ body.dark #welcome-title {
   
   #welcome-title {
     font-size: 1rem;
+    margin-top: 0;
+    margin-bottom: 5px;
+  }
+  
+  .buttons-container {
+    gap: 5px;
   }
   
   .btn-main {
-    height: 30px;
+    height: 35px;
+  }
+  
+  .btn-main i {
+    font-size: 1.2rem;
+  }
+  
+  .btn-text {
+    font-size: 0.9rem;
   }
 }
