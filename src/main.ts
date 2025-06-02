@@ -66,6 +66,22 @@ class App {
         closeButtons.forEach((btn) => {
             btn.addEventListener("click", () => this.closeModal());
         });
+
+        const modals = document.querySelectorAll('.modal');
+        modals.forEach(modal => {
+            modal.addEventListener('click', (event) => {
+                if (event.target === modal) {
+                    this.closeModal();
+                }
+            });
+        });
+
+        window.addEventListener('popstate', () => {
+            const openModal = document.querySelector('.modal:not(.hidden)');
+            if (openModal) {
+                this.closeModal(true);
+            }
+        });
     }
 
     private loadSavedTheme(): void {
@@ -207,10 +223,35 @@ class App {
             delay: 100,
         });
 
+        if (id === 'technologies') this.initTechTabs();
+
         history.pushState({ modal: id }, "", `#${id}`);
     }
 
-    private closeModal(): void {
+    private initTechTabs(): void {
+        const tabButtons = document.querySelectorAll('.tech-tab-btn');
+        
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const target = button.getAttribute('data-target');
+                
+                document.querySelectorAll('.tech-tab-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                document.querySelectorAll('.tech-tab-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+
+                if (!target) return;
+                
+                button.classList.add('active');
+                document.getElementById(target)?.classList.add('active');
+            });
+        });
+    }
+
+    private closeModal(skipHistory: boolean = false): void {
         const modal = document.querySelector(".modal:not(.hidden)");
         if (!modal) return;
 
@@ -233,7 +274,8 @@ class App {
             complete: () => {
                 modal.classList.add("hidden");
                 document.body.classList.remove("modal-open");
-                if (location.hash) history.back();
+                
+                if (location.hash && !skipHistory) history.back();
             },
         });
     }

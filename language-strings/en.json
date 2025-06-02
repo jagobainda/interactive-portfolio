@@ -1,4 +1,5 @@
 {
+    "title": "Online CV - jagoba.dev",
     "contact-title": "Contact Me",
     "linkedin-text": "LinkedIn",
     "email-text": "contact@jagoba.dev",
@@ -11,5 +12,8 @@
     "projects-btn-text": "Projects",
     "technologies-btn-text": "Key skills",
     "experience-btn-text": "Experience",
-    "about-me-btn-text": "About Me"
+    "about-me-btn-text": "About Me",
+    "btn-tech-tab": "Technologies",
+    "btn-prog-tab": "Programs",
+    "btn-os-tab": "OS & Services"
 }
