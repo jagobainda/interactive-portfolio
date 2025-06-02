@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "build": "tsc && cp src/style.css public/dist/",
+    "start": "node public/dist/main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
