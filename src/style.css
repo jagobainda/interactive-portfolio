@@ -353,7 +353,7 @@ body.dark #welcome-title {
   filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.3));
 }
 
-@media (min-width: 1025px) {
+@media (min-width: 1110px) {
   .btn-main {
     width: 20%;
     height: 300px;
@@ -391,7 +391,7 @@ body.dark #welcome-title {
   }
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
+@media (min-width: 769px) and (max-width: 1109px) {
   #app {
     gap: 30px;
   }
@@ -660,5 +660,109 @@ body.dark #welcome-title {
   
   .tech-item {
     padding: 0.5rem;
+  }
+}
+
+@media (max-height: 480px) and (orientation: landscape) {
+  #app {
+    gap: 10px;
+    padding: 10px 15px 10px;
+  }
+  
+  #welcome-title {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    margin-top: 0;
+  }
+  
+  .buttons-container {
+    flex-wrap: wrap;
+    width: 95%;
+    gap: 10px;
+    margin-top: 0;
+    justify-content: center;
+  }
+  
+  .btn-main {
+    width: 23%;
+    height: 110px;
+    min-width: 0;
+    padding: 10px;
+  }
+  
+  .btn-main i {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+  }
+  
+  .btn-text {
+    font-size: 0.9rem;
+  }
+  
+  .top-controls {
+    top: 10px;
+    right: 10px;
+  }
+  
+  #contact-button, #theme-toggle {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .modal-content {
+    padding: 1rem;
+    max-height: 85vh;
+  }
+  
+  .technology-modal {
+    width: 95%;
+    max-width: 95%;
+    padding: 0.75rem;
+    flex-direction: column;
+  }
+  
+  .tech-tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin-bottom: 0.5rem;
+  }
+  
+  .tech-tab-btn {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+    white-space: nowrap;
+  }
+  
+  .tech-tab-content {
+    max-height: 35vh;
+  }
+  
+  .tech-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+  }
+  
+  .tech-item {
+    padding: 0.4rem;
+  }
+  
+  .tech-icon {
+    font-size: 1.3rem;
+    margin-bottom: 0.3rem;
+  }
+  
+  .tech-name {
+    font-size: 0.7rem;
+    margin-bottom: 0.2rem;
+  }
+  
+  .tech-stars {
+    transform: scale(0.7);
+  }
+  
+  .close-btn {
+    font-size: 1.2rem;
+    top: 0.3rem;
+    right: 0.5rem;
   }
 }
