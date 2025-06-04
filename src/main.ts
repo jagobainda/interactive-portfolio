@@ -103,6 +103,8 @@ class App {
             ? "es"
             : "en";
 
+        document.documentElement.lang = lang;
+
         const path = `/language-strings/${lang}.json`;
 
         const res = await fetch(path);
