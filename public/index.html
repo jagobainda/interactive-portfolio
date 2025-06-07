@@ -4,13 +4,13 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-        <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-        <link rel="stylesheet" type='text/css' href="style/style.css" />
-        <link rel="manifest" href="/imgs/favicon/manifest.json">
-        <link rel="icon" href="/imgs/favicon/favicon.svg" type="image/svg+xml">
-        <link rel="icon" href="/imgs/favicon/favicon.ico" sizes="any">
-        <link rel="apple-touch-icon" href="/imgs/favicon/favicon.ico">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+        <link rel="stylesheet" type="text/css" href="style/style.css" />
+        <link rel="manifest" href="/imgs/favicon/manifest.json" />
+        <link rel="icon" href="/imgs/favicon/favicon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/imgs/favicon/favicon.ico" sizes="any" />
+        <link rel="apple-touch-icon" href="/imgs/favicon/favicon.ico" />
         <title id="title"></title>
     </head>
     <body class="dark">
@@ -31,17 +31,17 @@
                     <i class="bi bi-code-square"></i>
                     <span class="btn-text" id="projects-btn-text">Proyectos</span>
                 </button>
-                
+
                 <button class="btn-main" id="btn-technologies">
                     <i class="bi bi-tools"></i>
                     <span class="btn-text" id="technologies-btn-text">Tecnologías</span>
                 </button>
-                
+
                 <button class="btn-main" id="btn-experience">
                     <i class="bi bi-briefcase"></i>
                     <span class="btn-text" id="experience-btn-text">Experiencia</span>
                 </button>
-                
+
                 <button class="btn-main" id="btn-about-me">
                     <i class="bi bi-person"></i>
                     <span class="btn-text" id="about-me-btn-text">Sobre mí</span>
@@ -53,7 +53,7 @@
             <div class="modal-content">
                 <button id="close-btn" class="close-btn">&times;</button>
                 <h2 id="contact-title"></h2>
-                
+
                 <div class="contact-links">
                     <a href="mailto:contact@jagoba.dev" class="contact-link">
                         <i class="bi bi-envelope-fill"></i>
@@ -64,12 +64,12 @@
                         <i class="bi bi-linkedin"></i>
                         <span id="linkedin-text"></span>
                     </a>
-                    
+
                     <a href="https://github.com/jagobainda" target="_blank" class="contact-link">
                         <i class="bi bi-github"></i>
                         <span id="github-text"></span>
                     </a>
-                    
+
                     <a href="" download class="contact-link">
                         <i class="bi bi-file-earmark-person-fill"></i>
                         <span id="resume-text"></span>
@@ -82,9 +82,7 @@
             <div class="modal-content">
                 <button class="close-btn">&times;</button>
                 <h2 id="projects-title"></h2>
-                <div class="modal-body">
-                    
-                </div>
+                <div class="modal-body"></div>
             </div>
         </div>
 
@@ -100,9 +98,15 @@
                 </div>
 
                 <div class="modal-body">
-                    <div id="tech-tab" class="tech-tab-content active"></div>
-                    <div id="prog-tab" class="tech-tab-content"></div>
-                    <div id="os-tab" class="tech-tab-content"></div>
+                    <div id="tech-tab" class="tech-tab-content active">
+                        <div class="tech-grid"></div>
+                    </div>
+                    <div id="prog-tab" class="tech-tab-content">
+                        <div class="tech-grid"></div>
+                    </div>
+                    <div id="os-tab" class="tech-tab-content">
+                        <div class="tech-grid"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -111,9 +115,7 @@
             <div class="modal-content">
                 <button class="close-btn">&times;</button>
                 <h2 id="experience-title"></h2>
-                <div class="modal-body">
-                    
-                </div>
+                <div class="modal-body"></div>
             </div>
         </div>
 
@@ -121,9 +123,7 @@
             <div class="modal-content">
                 <button class="close-btn">&times;</button>
                 <h2 id="about-me-title"></h2>
-                <div class="modal-body">
-                    
-                </div>
+                <div class="modal-body"></div>
             </div>
         </div>
 
