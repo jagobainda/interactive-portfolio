@@ -8,76 +8,48 @@ class App {
 
         this.loadLanguageStrings();
 
+        this.loadTechnologies();
+
         this.bindEvents();
     }
 
     private bindEvents(): void {
-        document.addEventListener("keydown", (event) =>
-            this.handleKeydown(event)
-        );
+        document.addEventListener("keydown", event => this.handleKeydown(event));
 
-        const btnLightbulb = document.querySelector(
-            "#theme-toggle"
-        ) as HTMLButtonElement;
-        if (btnLightbulb)
-            btnLightbulb.addEventListener("click", () => this.toggleTheme());
+        const btnLightbulb = document.querySelector("#theme-toggle") as HTMLButtonElement;
+        if (btnLightbulb) btnLightbulb.addEventListener("click", () => this.toggleTheme());
 
-        const btnContacts = document.querySelector(
-            "#contact-button"
-        ) as HTMLButtonElement;
-        if (btnContacts)
-            btnContacts.addEventListener("click", () =>
-                this.openModal("contact")
-            );
+        const btnContacts = document.querySelector("#contact-button") as HTMLButtonElement;
+        if (btnContacts) btnContacts.addEventListener("click", () => this.openModal("contact"));
 
-        const btnProjects = document.querySelector(
-            "#btn-projects"
-        ) as HTMLButtonElement;
-        if (btnProjects)
-            btnProjects.addEventListener("click", () =>
-                this.openModal("projects")
-            );
+        const btnProjects = document.querySelector("#btn-projects") as HTMLButtonElement;
+        if (btnProjects) btnProjects.addEventListener("click", () => this.openModal("projects"));
 
-        const btnTechnologies = document.querySelector(
-            "#btn-technologies"
-        ) as HTMLButtonElement;
-        if (btnTechnologies)
-            btnTechnologies.addEventListener("click", () =>
-                this.openModal("technologies")
-            );
+        const btnTechnologies = document.querySelector("#btn-technologies") as HTMLButtonElement;
+        if (btnTechnologies) btnTechnologies.addEventListener("click", () => this.openModal("technologies"));
 
-        const btnExperience = document.querySelector(
-            "#btn-experience"
-        ) as HTMLButtonElement;
-        if (btnExperience)
-            btnExperience.addEventListener("click", () =>
-                this.openModal("experience")
-            );
+        const btnExperience = document.querySelector("#btn-experience") as HTMLButtonElement;
+        if (btnExperience) btnExperience.addEventListener("click", () => this.openModal("experience"));
 
-        const btnAboutMe = document.querySelector(
-            "#btn-about-me"
-        ) as HTMLButtonElement;
-        if (btnAboutMe)
-            btnAboutMe.addEventListener("click", () =>
-                this.openModal("about-me")
-            );
+        const btnAboutMe = document.querySelector("#btn-about-me") as HTMLButtonElement;
+        if (btnAboutMe) btnAboutMe.addEventListener("click", () => this.openModal("about-me"));
 
         const closeButtons = document.querySelectorAll(".close-btn");
-        closeButtons.forEach((btn) => {
+        closeButtons.forEach(btn => {
             btn.addEventListener("click", () => this.closeModal());
         });
 
-        const modals = document.querySelectorAll('.modal');
+        const modals = document.querySelectorAll(".modal");
         modals.forEach(modal => {
-            modal.addEventListener('click', (event) => {
+            modal.addEventListener("click", event => {
                 if (event.target === modal) {
                     this.closeModal();
                 }
             });
         });
 
-        window.addEventListener('popstate', () => {
-            const openModal = document.querySelector('.modal:not(.hidden)');
+        window.addEventListener("popstate", () => {
+            const openModal = document.querySelector(".modal:not(.hidden)");
             if (openModal) {
                 this.closeModal(true);
             }
@@ -85,12 +57,10 @@ class App {
     }
 
     private loadSavedTheme(): void {
-        const savedTheme = localStorage.getItem("jidev_theme") || "light";
+        const savedTheme = localStorage.getItem("jidev_theme") || "dark";
         document.body.classList.toggle("dark", savedTheme === "dark");
 
-        const icon = document.querySelector(
-            "#theme-toggle i"
-        ) as HTMLIFrameElement;
+        const icon = document.querySelector("#theme-toggle i") as HTMLIFrameElement;
 
         if (!icon) return;
 
@@ -99,9 +69,7 @@ class App {
     }
 
     private async loadLanguageStrings(): Promise<void> {
-        const lang = navigator.language.toLowerCase().startsWith("es")
-            ? "es"
-            : "en";
+        const lang = navigator.language.toLowerCase().startsWith("es") ? "es" : "en";
 
         document.documentElement.lang = lang;
 
@@ -119,12 +87,50 @@ class App {
         }
     }
 
+    private async loadTechnologies(): Promise<void> {
+        type TechnologyItem = {
+            icon: string;
+            name: string;
+            stars: number;
+            category: string;
+        };
+
+        const res = await fetch("/data/technologies.json");
+        if (!res.ok) throw new Error("Failed to load technology data");
+
+        const items: TechnologyItem[] = await res.json();
+
+        const containerMap: Record<string, HTMLElement | null> = {
+            tech: document.querySelector("#tech-tab .tech-grid"),
+            prog: document.querySelector("#prog-tab .tech-grid"),
+            os: document.querySelector("#os-tab .tech-grid")
+        };
+
+        for (const item of items) {
+            const container = containerMap[item.category];
+            if (!container) continue;
+
+            const div = document.createElement("div");
+            div.className = "tech-item";
+
+            div.innerHTML = `
+                <i class="tech-icon ${item.icon}"></i>
+                <div class="tech-name">${item.name}</div>
+                <div class="tech-stars">
+                    ${'<i class="bi bi-star-fill"></i>'.repeat(item.stars)}
+                </div>
+            `;
+
+            container.appendChild(div);
+        }
+    }
+
     private typeTitle(): void {
         const el = document.getElementById("welcome-title");
-        
+
         if (!el) return;
 
-        const base = " Jagoba Inda > ";
+        const base = " Jagoba Inda ~$ ";
         const fake = "Full sta";
         const real = "Backend Developer";
         const visitedKey = "jagoba_dev_visited";
@@ -170,11 +176,12 @@ class App {
             finalize();
             return;
         }
-        
+
         el.textContent = "";
 
         write(base + fake, () =>
-            setTimeout(() =>
+            setTimeout(
+                () =>
                     erase(fake.length, () => {
                         write(real, () => localStorage.setItem(visitedKey, "true"));
                     }),
@@ -183,13 +190,11 @@ class App {
         );
     }
 
-    private handleKeydown(event: KeyboardEvent): void {
-        
-    }
+    private handleKeydown(event: KeyboardEvent): void {}
 
     private toggleTheme(): void {
         const icon = document.querySelector("#theme-toggle i") as HTMLIFrameElement;
-        
+
         if (!icon) return;
 
         icon.classList.toggle("bi-lightbulb-fill");
@@ -216,39 +221,36 @@ class App {
             scale: [0.95, 1],
             opacity: [0, 1],
             rotate: [-2, 0],
-            boxShadow: [
-                "0px 0px 0px rgba(0,0,0,0)",
-                "0px 10px 25px rgba(0,0,0,0.2)",
-            ],
+            boxShadow: ["0px 0px 0px rgba(0,0,0,0)", "0px 10px 25px rgba(0,0,0,0.2)"],
             duration: 400,
             easing: "easeOutCubic",
-            delay: 100,
+            delay: 100
         });
 
-        if (id === 'technologies') this.initTechTabs();
+        if (id === "technologies") this.initTechTabs();
 
         history.pushState({ modal: id }, "", `#${id}`);
     }
 
     private initTechTabs(): void {
-        const tabButtons = document.querySelectorAll('.tech-tab-btn');
-        
+        const tabButtons = document.querySelectorAll(".tech-tab-btn");
+
         tabButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const target = button.getAttribute('data-target');
-                
-                document.querySelectorAll('.tech-tab-btn').forEach(btn => {
-                    btn.classList.remove('active');
+            button.addEventListener("click", () => {
+                const target = button.getAttribute("data-target");
+
+                document.querySelectorAll(".tech-tab-btn").forEach(btn => {
+                    btn.classList.remove("active");
                 });
-                
-                document.querySelectorAll('.tech-tab-content').forEach(content => {
-                    content.classList.remove('active');
+
+                document.querySelectorAll(".tech-tab-content").forEach(content => {
+                    content.classList.remove("active");
                 });
 
                 if (!target) return;
-                
-                button.classList.add('active');
-                document.getElementById(target)?.classList.add('active');
+
+                button.classList.add("active");
+                document.getElementById(target)?.classList.add("active");
             });
         });
     }
@@ -267,18 +269,15 @@ class App {
             scale: [1, 0.9],
             opacity: [1, 0],
             rotate: [0, -1],
-            boxShadow: [
-                "0px 10px 25px rgba(0,0,0,0.2)",
-                "0px 0px 0px rgba(0,0,0,0)",
-            ],
+            boxShadow: ["0px 10px 25px rgba(0,0,0,0.2)", "0px 0px 0px rgba(0,0,0,0)"],
             duration: 250,
             easing: "easeInQuart",
             complete: () => {
                 modal.classList.add("hidden");
                 document.body.classList.remove("modal-open");
-                
+
                 if (location.hash && !skipHistory) history.back();
-            },
+            }
         });
     }
 }

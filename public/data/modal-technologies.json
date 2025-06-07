@@ -1,0 +1,40 @@
+{
+  "technologies": [
+    { "icon": "devicon-csharp-plain", "name": ".NET / C#", "stars": 3 },
+    { "icon": "devicon-typescript-plain", "name": "TS / JS", "stars": 2 },
+    { "icon": "devicon-bootstrap-plain", "name": "CSS / Bootstrap", "stars": 2 },
+    { "icon": "devicon-powershell-plain", "name": "PowerShell", "stars": 2 },
+    { "icon": "devicon-mysql-plain", "name": "MySQL", "stars": 3 },
+    { "icon": "devicon-microsoftsqlserver-plain", "name": "SQL Server", "stars": 3 },
+    { "icon": "devicon-sqlite-plain", "name": "SQLite", "stars": 2 },
+    { "icon": "devicon-mongodb-plain", "name": "MongoDB", "stars": 1 },
+    { "icon": "devicon-java-plain", "name": "Java", "stars": 3 },
+    { "icon": "devicon-kotlin-plain", "name": "Kotlin", "stars": 2 },
+    { "icon": "devicon-python-plain", "name": "Python", "stars": 2 },
+    { "icon": "devicon-rust-original", "name": "Rust", "stars": 1 }
+  ],
+  "programmingTools": [
+    { "icon": "devicon-visualstudio-plain", "name": "Visual Studio", "stars": 3 },
+    { "icon": "devicon-vscode-plain", "name": "Visual Studio Code", "stars": 3 },
+    { "icon": "devicon-intellij-plain", "name": "IntelliJ", "stars": 3 },
+    { "icon": "devicon-pycharm-plain", "name": "PyCharm", "stars": 3 },
+    { "icon": "devicon-jetbrains-plain", "name": "Rider", "stars": 3 },
+    { "icon": "devicon-datagrip-plain", "name": "DataGrip", "stars": 3 },
+    { "icon": "devicon-webstorm-plain", "name": "WebStorm", "stars": 2 },
+    { "icon": "devicon-android-plain", "name": "Android Studio", "stars": 2 },
+    { "icon": "devicon-mysql-plain", "name": "MySQL Workbench", "stars": 3 },
+    { "icon": "devicon-microsoftsqlserver-plain", "name": "SSMS", "stars": 3 },
+    { "icon": "devicon-dbeaver-plain", "name": "DBeaver", "stars": 2 },
+    { "icon": "devicon-insomnia-plain", "name": "Insomnia", "stars": 2 }
+  ],
+  "operatingSystems": [
+    { "icon": "devicon-windows8-original", "name": "Windows 10/11", "stars": 3 },
+    { "icon": "devicon-windows8-original", "name": "Windows Server", "stars": 2 },
+    { "icon": "devicon-ubuntu-plain", "name": "Ubuntu Server", "stars": 2 },
+    { "icon": "devicon-debian-plain", "name": "Debian", "stars": 1 },
+    { "icon": "devicon-cloudflare-plain", "name": "Cloudflare", "stars": 1 },
+    { "icon": "devicon-apache-plain", "name": "Apache", "stars": 1 },
+    { "icon": "devicon-azure-plain", "name": "Azure", "stars": 2 },
+    { "icon": "devicon-azuredevops-plain", "name": "DevOps", "stars": 2 }
+  ]
+}

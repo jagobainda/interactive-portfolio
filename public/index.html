@@ -7,17 +7,20 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
         <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
         <link rel="stylesheet" type='text/css' href="style/style.css" />
-        <link rel="icon" href="imgs/favicon.ico" type="image/x-icon">
+        <link rel="manifest" href="/imgs/favicon/manifest.json">
+        <link rel="icon" href="/imgs/favicon/favicon.svg" type="image/svg+xml">
+        <link rel="icon" href="/imgs/favicon/favicon.ico" sizes="any">
+        <link rel="apple-touch-icon" href="/imgs/favicon/favicon.ico">
         <title id="title"></title>
     </head>
-    <body>
+    <body class="dark">
         <div id="app">
             <div class="top-controls">
                 <button id="contact-button" aria-label="Contact links">
                     <i class="bi bi-link-45deg"></i>
                 </button>
                 <button id="theme-toggle" aria-label="Toggle theme">
-                    <i class="bi bi-lightbulb-fill"></i>
+                    <i class="bi bi-lightbulb-off-fill"></i>
                 </button>
             </div>
 
@@ -89,281 +92,17 @@
             <div class="modal-content technology-modal">
                 <button class="close-btn">&times;</button>
                 <h2 id="technologies-title"></h2>
-                
+
                 <div class="tech-tabs">
                     <button class="tech-tab-btn active" data-target="tech-tab" id="btn-tech-tab"></button>
                     <button class="tech-tab-btn" data-target="prog-tab" id="btn-prog-tab"></button>
                     <button class="tech-tab-btn" data-target="os-tab" id="btn-os-tab"></button>
                 </div>
-                
+
                 <div class="modal-body">
-                    <div id="tech-tab" class="tech-tab-content active">
-                        <div class="tech-grid">
-                            <div class="tech-item">
-                                <i class="tech-icon devicon-csharp-plain colored"></i>
-                                <div class="tech-name">.NET / C#</div>
-                                <div class="tech-stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                                </div>
-                            </div>
-                            
-                            <div class="tech-item">
-                                <i class="tech-icon devicon-typescript-plain colored"></i>
-                                <div class="tech-name">TS / JS</div>
-                                <div class="tech-stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                                </div>
-                            </div>
-                            
-                            <div class="tech-item">
-                                <i class="tech-icon devicon-bootstrap-plain colored"></i>
-                                <div class="tech-name">CSS / Bootstrap</div>
-                                <div class="tech-stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                                </div>
-                            </div>
-                            
-                            <div class="tech-item">
-                                <i class="tech-icon devicon-powershell-plain colored"></i>
-                                <div class="tech-name">PowerShell</div>
-                                <div class="tech-stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                                </div>
-                            </div>
-                            
-                            <div class="tech-item">
-                                <i class="tech-icon devicon-mysql-plain colored"></i>
-                                <div class="tech-name">MySQL</div>
-                                <div class="tech-stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                                </div>
-                            </div>
-                            
-                            <div class="tech-item">
-                                <i class="tech-icon devicon-microsoftsqlserver-plain colored"></i>
-                                <div class="tech-name">SQL Server</div>
-                                <div class="tech-stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                                </div>
-                            </div>
-                            
-                            <div class="tech-item">
-                                <i class="tech-icon devicon-sqlite-plain colored"></i>
-                                <div class="tech-name">SQLite</div>
-                                <div class="tech-stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                                </div>
-                            </div>
-                            
-                            <div class="tech-item">
-                                <i class="tech-icon devicon-mongodb-plain colored"></i>
-                                <div class="tech-name">MongoDB</div>
-                                <div class="tech-stars">
-                                    <i class="bi bi-star-fill"></i>
-                                </div>
-                            </div>
-                            
-                            <div class="tech-item">
-                                <i class="tech-icon devicon-java-plain colored"></i>
-                                <div class="tech-name">Java</div>
-                                <div class="tech-stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                                </div>
-                            </div>
-                            
-                            <div class="tech-item">
-                                <i class="tech-icon devicon-kotlin-plain colored"></i>
-                                <div class="tech-name">Kotlin</div>
-                                <div class="tech-stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                                </div>
-                            </div>
-                            
-                            <div class="tech-item">
-                                <i class="tech-icon devicon-python-plain colored"></i>
-                                <div class="tech-name">Python</div>
-                                <div class="tech-stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                                </div>
-                            </div>
-
-                            <div class="tech-item">
-                                <i class="tech-icon devicon-rust-original colored"></i>
-                                <div class="tech-name">Rust</div>
-                                <div class="tech-stars">
-                                    <i class="bi bi-star-fill"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div id="prog-tab" class="tech-tab-content">
-                        <div class="tech-grid">
-                            <div class="tech-item">
-                                <i class="tech-icon devicon-visualstudio-plain colored"></i>
-                                <div class="tech-name">Visual Studio</div>
-                                <div class="tech-stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                                </div>
-                            </div>
-                            
-                            <div class="tech-item">
-                                <i class="tech-icon devicon-vscode-plain colored"></i>
-                                <div class="tech-name">Visual Studio Code</div>
-                                <div class="tech-stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                                </div>
-                            </div>
-                            
-                            <div class="tech-item">
-                                <i class="tech-icon devicon-intellij-plain colored"></i>
-                                <div class="tech-name">IntelliJ</div>
-                                <div class="tech-stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                                </div>
-                            </div>
-                            
-                            <div class="tech-item">
-                                <i class="tech-icon devicon-pycharm-plain colored"></i>
-                                <div class="tech-name">PyCharm</div>
-                                <div class="tech-stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                                </div>
-                            </div>
-                            
-                            <div class="tech-item">
-                                <i class="tech-icon devicon-jetbrains-plain colored"></i>
-                                <div class="tech-name">Rider</div>
-                                <div class="tech-stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                                </div>
-                            </div>
-                            
-                            <div class="tech-item">
-                                <i class="tech-icon devicon-datagrip-plain colored"></i>
-                                <div class="tech-name">DataGrip</div>
-                                <div class="tech-stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                                </div>
-                            </div>
-                            
-                            <div class="tech-item">
-                                <i class="tech-icon devicon-webstorm-plain colored"></i>
-                                <div class="tech-name">WebStorm</div>
-                                <div class="tech-stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                                </div>
-                            </div>
-                            
-                            <div class="tech-item">
-                                <i class="tech-icon devicon-android-plain colored"></i>
-                                <div class="tech-name">Android Studio</div>
-                                <div class="tech-stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                                </div>
-                            </div>
-                            
-                            <div class="tech-item">
-                                <i class="tech-icon devicon-mysql-plain colored"></i>
-                                <div class="tech-name">MySQL Workbench</div>
-                                <div class="tech-stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                                </div>
-                            </div>
-                            
-                            <div class="tech-item">
-                                <i class="tech-icon devicon-microsoftsqlserver-plain colored"></i>
-                                <div class="tech-name">SSMS</div>
-                                <div class="tech-stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                                </div>
-                            </div>
-                            
-                            <div class="tech-item">
-                                <i class="tech-icon devicon-dbeaver-plain colored"></i>
-                                <div class="tech-name">DBeaver</div>
-                                <div class="tech-stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                                </div>
-                            </div>
-                            
-                            <div class="tech-item">
-                                <i class="tech-icon devicon-insomnia-plain colored"></i>
-                                <div class="tech-name">Insomnia</div>
-                                <div class="tech-stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div id="os-tab" class="tech-tab-content">
-                        <div class="tech-grid">
-                            <div class="tech-item">
-                                <i class="tech-icon devicon-windows8-original colored"></i>
-                                <div class="tech-name">Windows 10/11</div>
-                                <div class="tech-stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                                </div>
-                            </div>
-                            
-                            <div class="tech-item">
-                                <i class="tech-icon devicon-windows8-original colored"></i>
-                                <div class="tech-name">Windows Server</div>
-                                <div class="tech-stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                                </div>
-                            </div>
-                            
-                            <div class="tech-item">
-                                <i class="tech-icon devicon-ubuntu-plain colored"></i>
-                                <div class="tech-name">Ubuntu Server</div>
-                                <div class="tech-stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                                </div>
-                            </div>
-                            
-                            <div class="tech-item">
-                                <i class="tech-icon devicon-debian-plain colored"></i>
-                                <div class="tech-name">Debian</div>
-                                <div class="tech-stars">
-                                    <i class="bi bi-star-fill"></i>
-                                </div>
-                            </div>
-
-                            <div class="tech-item">
-                                <i class="tech-icon devicon-cloudflare-plain colored"></i>
-                                <div class="tech-name">Cloudflare</div>
-                                <div class="tech-stars">
-                                    <i class="bi bi-star-fill"></i>
-                                </div>
-                            </div>
-
-                            <div class="tech-item">
-                                <i class="tech-icon devicon-apache-plain colored"></i>
-                                <div class="tech-name">Apache</div>
-                                <div class="tech-stars">
-                                    <i class="bi bi-star-fill"></i>
-                                </div>
-                            </div>
-
-                            <div class="tech-item">
-                                <i class="tech-icon devicon-azure-plain colored"></i>
-                                <div class="tech-name">Azure</div>
-                                <div class="tech-stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                                </div>
-                            </div>
-
-                            <div class="tech-item">
-                                <i class="tech-icon devicon-azuredevops-plain colored"></i>
-                                <div class="tech-name">DevOps</div>
-                                <div class="tech-stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <div id="tech-tab" class="tech-tab-content active"></div>
+                    <div id="prog-tab" class="tech-tab-content"></div>
+                    <div id="os-tab" class="tech-tab-content"></div>
                 </div>
             </div>
         </div>
