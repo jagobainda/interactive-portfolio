@@ -92,36 +92,42 @@ class App {
             icon: string;
             name: string;
             stars: number;
-            category: string;
+            category?: string;
         };
 
-        const res = await fetch("/data/modal-technologies.json");
-        if (!res.ok) throw new Error("Failed to load technology data");
+        try {
+            const res = await fetch("/data/modal-technologies.json");
+            if (!res.ok) throw new Error("Failed to load technology data");
 
-        const items: TechnologyItem[] = await res.json();
+            const data = await res.json();
 
-        const containerMap: Record<string, HTMLElement | null> = {
-            tech: document.querySelector("#tech-tab .tech-grid"),
-            prog: document.querySelector("#prog-tab .tech-grid"),
-            os: document.querySelector("#os-tab .tech-grid")
-        };
+            const items: TechnologyItem[] = [...data.technologies.map((item: TechnologyItem) => ({ ...item, category: "tech" })), ...data.programmingTools.map((item: TechnologyItem) => ({ ...item, category: "prog" })), ...data.operatingSystems.map((item: TechnologyItem) => ({ ...item, category: "os" }))];
 
-        for (const item of items) {
-            const container = containerMap[item.category];
-            if (!container) continue;
+            const containerMap: Record<string, HTMLElement | null> = {
+                tech: document.querySelector("#tech-tab .tech-grid"),
+                prog: document.querySelector("#prog-tab .tech-grid"),
+                os: document.querySelector("#os-tab .tech-grid")
+            };
 
-            const div = document.createElement("div");
-            div.className = "tech-item";
+            for (const item of items) {
+                const container = containerMap[item.category || ""];
+                if (!container) continue;
 
-            div.innerHTML = `
-                <i class="tech-icon ${item.icon}"></i>
-                <div class="tech-name">${item.name}</div>
-                <div class="tech-stars">
-                    ${'<i class="bi bi-star-fill"></i>'.repeat(item.stars)}
-                </div>
-            `;
+                const div = document.createElement("div");
+                div.className = "tech-item";
 
-            container.appendChild(div);
+                div.innerHTML = `
+                    <i class="tech-icon ${item.icon}"></i>
+                    <div class="tech-name">${item.name}</div>
+                    <div class="tech-stars">
+                        ${'<i class="bi bi-star-fill"></i>'.repeat(item.stars)}
+                    </div>
+                `;
+
+                container.appendChild(div);
+            }
+        } catch (error) {
+            console.error("Failed to load technologies:", error);
         }
     }
 
