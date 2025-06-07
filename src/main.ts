@@ -95,7 +95,7 @@ class App {
             category: string;
         };
 
-        const res = await fetch("/data/technologies.json");
+        const res = await fetch("/data/modal-technologies.json");
         if (!res.ok) throw new Error("Failed to load technology data");
 
         const items: TechnologyItem[] = await res.json();
