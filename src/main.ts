@@ -117,7 +117,7 @@ class App {
                 div.className = "tech-item";
 
                 div.innerHTML = `
-                    <i class="tech-icon ${item.icon}"></i>
+                    <i class="tech-icon ${item.icon} colored"></i>
                     <div class="tech-name">${item.name}</div>
                     <div class="tech-stars">
                         ${'<i class="bi bi-star-fill"></i>'.repeat(item.stars)}
