@@ -1,14 +1,21 @@
 declare const anime: any;
 
 class App {
+    public lang: string;
+
     constructor() {
+        this.lang = navigator.language.toLowerCase().startsWith("es") ? "es" : "en";
+
         this.loadSavedTheme();
 
         this.typeTitle();
 
         this.loadLanguageStrings();
 
+        this.loadProjects();
+        this.loadExperience();
         this.loadTechnologies();
+        this.loadAboutMe();
 
         this.bindEvents();
     }
@@ -69,11 +76,9 @@ class App {
     }
 
     private async loadLanguageStrings(): Promise<void> {
-        const lang = navigator.language.toLowerCase().startsWith("es") ? "es" : "en";
+        document.documentElement.lang = this.lang;
 
-        document.documentElement.lang = lang;
-
-        const path = `/language-strings/${lang}.json`;
+        const path = `/language-strings/${this.lang}.json`;
 
         const res = await fetch(path);
 
@@ -85,6 +90,10 @@ class App {
             const el = document.getElementById(id);
             if (el) el.textContent = text;
         }
+    }
+
+    private async loadProjects(): Promise<void> {
+        // TODO
     }
 
     private async loadTechnologies(): Promise<void> {
@@ -128,6 +137,70 @@ class App {
             }
         } catch (error) {
             console.error("Failed to load technologies:", error);
+        }
+    }
+
+    private async loadExperience(): Promise<void> {
+        // TODO
+    }
+
+    private async loadAboutMe(): Promise<void> {
+        type Section = { title: string; content: string; icon: string };
+        type AboutMe = {
+            intro: string;
+            sections: Section[];
+            quote?: string;
+            date: string;
+        };
+
+        const res = await fetch(`/data/modal-aboutme-${this.lang}.json`);
+
+        if (!res.ok) return console.error("Failed to load about me data");
+
+        const data = (await res.json()) as AboutMe;
+        const { intro, sections, quote, date } = data;
+
+        const birth = new Date(date);
+        const today = new Date();
+
+        let age = today.getFullYear() - birth.getFullYear();
+        const m = today.getMonth() - birth.getMonth();
+
+        if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) age--;
+
+        const modalBody = document.querySelector("#modal-about-me .modal-body");
+        if (!modalBody) return;
+        modalBody.innerHTML = "";
+
+        const introEl = document.createElement("div");
+        introEl.className = "about-section about-intro";
+        introEl.innerHTML = `<p>${intro.replace("--AGE-PLACEHOLDER--", age.toString())}</p>`;
+        modalBody.appendChild(introEl);
+
+        const container = document.createElement("div");
+        container.className = "about-sections";
+        sections.forEach(({ title, icon, content }) => {
+            const el = document.createElement("div");
+            el.className = "about-section";
+            el.innerHTML = `
+                <div class="section-header">
+                    <i class="${icon}"></i>
+                    <h3>${title}</h3>
+                </div>
+                <div class="section-content">
+                    <p>${content}</p>
+                </div>
+            `;
+            container.appendChild(el);
+        });
+
+        modalBody.appendChild(container);
+
+        if (quote) {
+            const q = document.createElement("div");
+            q.className = "about-section about-quote";
+            q.innerHTML = `<blockquote>${quote}</blockquote>`;
+            modalBody.appendChild(q);
         }
     }
 

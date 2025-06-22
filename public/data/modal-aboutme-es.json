@@ -1,0 +1,17 @@
+{
+    "intro": "Soy Jagoba Inda, desarrollador Backend de --AGE-PLACEHOLDER-- años.",
+    "sections": [
+        {
+            "title": "Formación",
+            "content": "Tengo un Grado Superior en Desarrollo de Aplicaciones Multiplataforma y sigo aprendiendo por mi cuenta a través de proyectos personales. Me gusta buscar la tecnología que mejor encaje en cada reto, incluso si no forma parte de lo que se enseña normalmente.",
+            "icon": "bi-mortarboard-fill"
+        },
+        {
+            "title": "Intereses",
+            "content": "Fuera de la programación, me interesa todo lo relacionado con la ciberseguridad y el hardware. He montado, desmontado y reparado infinidad de ordenadores y dispositivos de todo tipo, siempre con curiosidad por ver cómo son por dentro.",
+            "icon": "bi-stars"
+        }
+    ],
+    "quote": "Siéntete libre de contactarme a través de cualquiera de los links en la sección de contacto.",
+    "date": "2000-03-11"
+}

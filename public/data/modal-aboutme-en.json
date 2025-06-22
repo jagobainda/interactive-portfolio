@@ -1,0 +1,17 @@
+{
+    "intro": "I'm Jagoba Inda, a --AGE-PLACEHOLDER-- year old Backend developer.",
+    "sections": [
+        {
+            "title": "Education",
+            "content": "I hold a Higher National Diploma in Cross-Platform Application Development and keep learning on my own through personal projects. I enjoy finding the technology that best fits each challenge, even if it’s not something traditionally taught.",
+            "icon": "bi-mortarboard-fill"
+        },
+        {
+            "title": "Interests",
+            "content": "Outside of programming, I'm interested in everything related to cybersecurity and hardware. I've assembled, disassembled, and repaired countless computers and all kinds of devices—always curious to see what’s inside.",
+            "icon": "bi-stars"
+        }
+    ],
+    "quote": "Feel free to reach out through any of the links in the contact section.",
+    "date": "2000-03-11"
+}
