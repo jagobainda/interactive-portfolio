@@ -395,7 +395,7 @@ body.dark #welcome-title {
 .about-quote {
     font-style: italic;
     text-align: center;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     padding: 1rem;
     border-top: 1px solid var(--bg-secondary);
     border-bottom: 1px solid var(--bg-secondary);
@@ -408,17 +408,20 @@ body.dark #welcome-title {
 }
 
 @media (max-width: 768px) {
-    .skills-list {
-        gap: 0.5rem;
+    .section-content p {
+        font-size: 0.8rem;
     }
 
-    .skill-item {
-        font-size: 0.8rem;
-        padding: 0.3rem 0.6rem;
+    .about-section {
+        margin-bottom: 0.5rem;
     }
 
     .about-intro {
         font-size: 1rem;
+    }
+
+    .about-quote blockquote {
+        font-size: 0.8rem;
     }
 }
 
