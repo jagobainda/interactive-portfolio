@@ -1,0 +1,13 @@
+{
+    "experiences": [
+        {
+            "position": "Desarrollador Full Stack",
+            "company": "i3Code Solutions",
+            "location": "Pamplona, Navarra, España",
+            "period": "Marzo 2024 - Presente",
+            "responsibilities": ["//TODO: Añadir responsabilidades", "//TODO: Añadir responsabilidades", "//TODO: Añadir responsabilidades", "//TODO: Añadir responsabilidades"],
+            "technologies": [".NET", "TypeScript", "CSS / Bootstrap", "MS SQL Server", "Azure", "PowerShell", "Python", "DevOps"],
+            "icon": "bi-buildings"
+        }
+    ]
+}
