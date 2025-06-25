@@ -141,7 +141,100 @@ class App {
     }
 
     private async loadExperience(): Promise<void> {
-        // TODO
+        try {
+            const res = await fetch(`/data/modal-experience-${this.lang}.json`);
+            if (!res.ok) throw new Error("Failed to load experience data");
+
+            const data = await res.json();
+
+            const modalBody = document.querySelector("#modal-experience .modal-body");
+            if (!modalBody) return;
+
+            modalBody.innerHTML = "";
+
+            const timelineContainer = document.createElement("div");
+            timelineContainer.className = "experience-timeline";
+            modalBody.appendChild(timelineContainer);
+
+            data.experiences.forEach((exp: any, index: number) => {
+                const experienceCard = document.createElement("div");
+                experienceCard.className = "experience-card";
+
+                const header = document.createElement("div");
+                header.className = "experience-header";
+
+                const iconDiv = document.createElement("div");
+                iconDiv.className = "experience-icon";
+                iconDiv.innerHTML = `<i class="${exp.icon}"></i>`;
+
+                const titleDiv = document.createElement("div");
+                titleDiv.className = "experience-title";
+                titleDiv.innerHTML = `
+                    <h3>${exp.position}</h3>
+                    <div class="company-info">
+                        <span class="company-name">${exp.company}</span>
+                        <span class="location">${exp.location}</span>
+                    </div>
+                    <div class="period">${exp.period}</div>
+                `;
+
+                header.appendChild(iconDiv);
+                header.appendChild(titleDiv);
+                experienceCard.appendChild(header);
+
+                if (exp.responsibilities && exp.responsibilities.length) {
+                    const respDiv = document.createElement("div");
+                    respDiv.className = "experience-responsibilities";
+
+                    const respTitle = document.createElement("h4");
+                    respTitle.textContent = this.lang === "es" ? "Responsabilidades:" : "Responsibilities:";
+                    respDiv.appendChild(respTitle);
+
+                    const respList = document.createElement("ul");
+                    exp.responsibilities.forEach((resp: string) => {
+                        const li = document.createElement("li");
+                        li.textContent = resp;
+                        respList.appendChild(li);
+                    });
+
+                    respDiv.appendChild(respList);
+                    experienceCard.appendChild(respDiv);
+                }
+
+                if (exp.technologies && exp.technologies.length) {
+                    const techDiv = document.createElement("div");
+                    techDiv.className = "experience-technologies";
+
+                    const techTitle = document.createElement("h4");
+                    techTitle.textContent = this.lang === "es" ? "Tecnologías:" : "Technologies:";
+                    techDiv.appendChild(techTitle);
+
+                    const skillsList = document.createElement("div");
+                    skillsList.className = "skills-list";
+
+                    exp.technologies.forEach((tech: string) => {
+                        const skillItem = document.createElement("span");
+                        skillItem.className = "skill-item";
+
+                        skillItem.innerHTML = `<i class="bi bi-check-circle-fill"></i> ${tech}`;
+                        skillsList.appendChild(skillItem);
+                    });
+
+                    techDiv.appendChild(skillsList);
+                    experienceCard.appendChild(techDiv);
+                }
+
+                timelineContainer.appendChild(experienceCard);
+
+                if (index < data.experiences.length - 1) {
+                    const connector = document.createElement("div");
+                    connector.className = "timeline-connector";
+                    timelineContainer.appendChild(connector);
+                }
+            });
+        } catch (error) {
+            console.error("Failed to load experience data:", error);
+        }
     }
 
     private async loadAboutMe(): Promise<void> {

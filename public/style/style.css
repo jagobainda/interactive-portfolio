@@ -181,11 +181,24 @@ body.dark #welcome-title {
     color: var(--text-color);
     padding: 2rem;
     border-radius: 8px;
-    max-width: 500px;
+    max-width: 800px;
     width: 90%;
+    max-height: 90vh;
     position: relative;
     box-shadow: 6px 6px 12px var(--shadow-dark);
     transition: background-color 0.3s ease, color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.modal h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-family: monospace;
+    font-size: 1.8rem;
+    text-shadow: 2px 2px 4px var(--shadow-light);
 }
 
 .close-btn {
@@ -202,6 +215,31 @@ body.dark #welcome-title {
 
 .close-btn:hover {
     color: #ff5252;
+}
+
+.modal-body {
+    max-height: 60vh;
+    padding-right: 5px;
+}
+
+.modal-body::-webkit-scrollbar,
+.tech-tab-content::-webkit-scrollbar,
+.experience-timeline::-webkit-scrollbar {
+    width: 6px;
+}
+
+.modal-body::-webkit-scrollbar-track,
+.tech-tab-content::-webkit-scrollbar-track,
+.experience-timeline::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+    border-radius: 8px;
+}
+
+.modal-body::-webkit-scrollbar-thumb,
+.tech-tab-content::-webkit-scrollbar-thumb,
+.experience-timeline::-webkit-scrollbar-thumb {
+    background: var(--bg-secondary);
+    border-radius: 8px;
 }
 
 #contact-title {
@@ -243,37 +281,12 @@ body.dark #welcome-title {
     font-size: 1.5rem;
 }
 
-.technology-modal {
-    max-width: 800px;
-    width: 90%;
-    max-height: 90vh;
-    display: flex;
-    flex-direction: column;
-}
-
 .tech-tab-content {
     display: none;
-    max-height: 60vh;
-    overflow-y: auto;
-    padding-right: 5px;
 }
 
 .tech-tab-content.active {
     display: block;
-}
-
-.tech-tab-content::-webkit-scrollbar {
-    width: 6px;
-}
-
-.tech-tab-content::-webkit-scrollbar-track {
-    background: var(--bg-primary);
-    border-radius: 8px;
-}
-
-.tech-tab-content::-webkit-scrollbar-thumb {
-    background: var(--bg-secondary);
-    border-radius: 8px;
 }
 
 .tech-tabs {
@@ -307,19 +320,10 @@ body.dark #welcome-title {
     font-weight: bold;
 }
 
-.tech-tab-content {
-    display: none;
-}
-
-.tech-tab-content.active {
-    display: block;
-}
-
 .tech-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     gap: 1.5rem;
-    z-index: 100000;
 }
 
 .tech-item {
@@ -407,6 +411,134 @@ body.dark #welcome-title {
     color: var(--text-color);
 }
 
+.experience-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 0.5rem;
+}
+
+.experience-card {
+    background-color: var(--bg-secondary);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0px 3px 8px var(--shadow-light);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.experience-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 5px 15px var(--shadow-dark);
+}
+
+.experience-header {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.experience-icon {
+    background-color: var(--bg-primary);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.experience-icon i {
+    font-size: 1.5rem;
+    color: var(--text-color);
+}
+
+.experience-title {
+    flex: 1;
+}
+
+.experience-title h3 {
+    margin: 0 0 0.25rem 0;
+    font-family: monospace;
+    font-size: 1.3rem;
+}
+
+.company-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 0.25rem;
+}
+
+.company-name {
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
+
+.location {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.period {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    opacity: 0.7;
+    font-style: italic;
+}
+
+.experience-description {
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.experience-responsibilities h4,
+.experience-technologies h4 {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+    font-family: monospace;
+}
+
+.experience-responsibilities ul {
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+}
+
+.experience-responsibilities li {
+    margin-bottom: 0.3rem;
+    line-height: 1.4;
+}
+
+.timeline-connector {
+    width: 2px;
+    height: 20px;
+    background-color: var(--bg-secondary);
+    margin-left: 25px;
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.skill-item {
+    background-color: var(--bg-primary);
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+}
+
+.skill-item i {
+    font-size: 0.8rem;
+    margin-right: 0.4rem;
+    color: #5cb85c;
+}
+
 @media (max-width: 768px) {
     .section-content p {
         font-size: 0.8rem;
@@ -422,6 +554,44 @@ body.dark #welcome-title {
 
     .about-quote blockquote {
         font-size: 0.8rem;
+    }
+
+    .modal-content {
+        width: 95%;
+        padding: 1.2rem;
+    }
+    .modal-body {
+        max-height: 55vh;
+        overflow-y: auto;
+    }
+
+    .modal h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .skills-list {
+        gap: 0.5rem;
+    }
+
+    .skill-item {
+        font-size: 0.8rem;
+        padding: 0.3rem 0.6rem;
+    }
+
+    .experience-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .experience-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .experience-icon i {
+        font-size: 1.25rem;
     }
 }
 
@@ -439,9 +609,9 @@ body.dark #welcome-title {
     .btn-text {
         font-size: 1.5rem;
     }
-
-    .tech-tab-content {
+    .modal-body {
         max-height: 65vh;
+        overflow-y: auto;
     }
 
     .tech-grid {
@@ -486,12 +656,12 @@ body.dark #welcome-title {
         font-size: 3rem;
     }
 
-    .technology-modal {
+    .modal-content {
         max-width: 90%;
     }
-
-    .tech-tab-content {
+    .modal-body {
         max-height: 60vh;
+        overflow-y: auto;
     }
 
     .tech-grid {
@@ -542,12 +712,6 @@ body.dark #welcome-title {
         padding: 1.5rem;
     }
 
-    .technology-modal {
-        width: 95%;
-        max-width: 95%;
-        padding: 1rem;
-    }
-
     .tech-tabs {
         margin-bottom: 1rem;
     }
@@ -556,9 +720,9 @@ body.dark #welcome-title {
         padding: 0.6rem 1rem;
         font-size: 0.9rem;
     }
-
-    .tech-tab-content {
+    .modal-body {
         max-height: 55vh;
+        overflow-y: auto;
     }
 
     .tech-grid {
@@ -625,7 +789,7 @@ body.dark #welcome-title {
         top: 10px;
     }
 
-    .technology-modal {
+    .modal-content {
         padding: 1rem;
         width: 100%;
         max-width: calc(100% - 20px);
@@ -655,9 +819,9 @@ body.dark #welcome-title {
         font-size: 0.8rem;
         white-space: nowrap;
     }
-
-    .tech-tab-content {
+    .modal-body {
         max-height: 50vh;
+        overflow-y: auto;
     }
 
     .tech-grid {
@@ -676,7 +840,6 @@ body.dark #welcome-title {
 
     .tech-name {
         font-size: 0.8rem;
-        margin-bottom: 0.3rem;
     }
 
     .tech-stars {
@@ -685,7 +848,7 @@ body.dark #welcome-title {
 }
 
 @media (max-width: 360px) {
-    .technology-modal {
+    .modal-content {
         padding: 0.75rem;
     }
 
@@ -716,15 +879,19 @@ body.dark #welcome-title {
         text-align: left;
         margin-bottom: 0;
     }
+
+    .timeline-connector {
+        margin-left: 20px;
+    }
 }
 
 @media (max-height: 600px) {
-    .technology-modal {
+    .modal-content {
         max-height: 95vh;
     }
-
-    .tech-tab-content {
+    .modal-body {
         max-height: 45vh;
+        overflow-y: auto;
     }
 
     .tech-grid {
@@ -788,13 +955,6 @@ body.dark #welcome-title {
         max-height: 85vh;
     }
 
-    .technology-modal {
-        width: 95%;
-        max-width: 95%;
-        padding: 0.75rem;
-        flex-direction: column;
-    }
-
     .tech-tabs {
         flex-wrap: nowrap;
         overflow-x: auto;
@@ -806,9 +966,9 @@ body.dark #welcome-title {
         font-size: 0.8rem;
         white-space: nowrap;
     }
-
-    .tech-tab-content {
+    .modal-body {
         max-height: 35vh;
+        overflow-y: auto;
     }
 
     .tech-grid {
@@ -838,5 +998,17 @@ body.dark #welcome-title {
         font-size: 1.2rem;
         top: 0.3rem;
         right: 0.5rem;
+    }
+}
+
+/* Modal de contacto más estrecho en pantalla grande */
+.contact-modal {
+    max-width: 500px;
+}
+
+@media (max-width: 600px) {
+    .contact-modal {
+        max-width: 90%;
+        width: 90%;
     }
 }
