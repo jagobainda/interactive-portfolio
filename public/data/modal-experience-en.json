@@ -5,7 +5,7 @@
             "company": "i3Code Solutions",
             "location": "Pamplona, Navarra, Spain",
             "period": "March 2024 - Present",
-            "responsibilities": ["Develop and maintain web applications and APIs using .NET and TypeScript.", "Design responsive user interfaces.", "Develop internal and client-facing automation scripts with PowerShell and Python.", "Manage deployments and production environments on Linux systems.", "Administer databases, primarily relational ones.", "Handle incidents and implement improvements for various client projects.", "Maintain and migrate legacy projects to modern technologies.", "Contribute to architecture decisions and development best practices."],
+            "responsibilities": ["Develop and maintain web applications and APIs using .NET and TypeScript.", "Design responsive user interfaces.", "Develop internal and client-facing automation scripts with PowerShell and Python.", "Manage deployments and production environments on Linux systems.", "Administer databases, primarily relational ones.", "Handle tickets and implement improvements for various client projects.", "Maintain and migrate legacy projects to modern technologies.", "Contribute to architecture decisions and development best practices."],
             "technologies": [".NET", "TypeScript", "SCSS / Bootstrap", "MS SQL Server", "Azure", "PowerShell", "Python", "Debian", "DevOps"],
             "icon": "bi-buildings"
         }
