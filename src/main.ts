@@ -100,7 +100,6 @@ class App {
         type TechnologyItem = {
             icon: string;
             name: string;
-            stars: number;
             category?: string;
         };
 
@@ -128,9 +127,6 @@ class App {
                 div.innerHTML = `
                     <i class="tech-icon ${item.icon} colored"></i>
                     <div class="tech-name">${item.name}</div>
-                    <div class="tech-stars">
-                        ${'<i class="bi bi-star-fill"></i>'.repeat(item.stars)}
-                    </div>
                 `;
 
                 container.appendChild(div);

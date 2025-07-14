@@ -5,8 +5,8 @@
             "company": "i3Code Solutions",
             "location": "Pamplona, Navarra, España",
             "period": "Marzo 2024 - Presente",
-            "responsibilities": ["//TODO: Añadir responsabilidades", "//TODO: Añadir responsabilidades", "//TODO: Añadir responsabilidades", "//TODO: Añadir responsabilidades"],
-            "technologies": [".NET", "TypeScript", "CSS / Bootstrap", "MS SQL Server", "Azure", "PowerShell", "Python", "DevOps"],
+            "responsibilities": ["Desarrollar y mantener aplicaciones web y APIs con .NET y TypeScript.", "Diseñar interfaces responsivas.", "Desarrollar automatizaciones internas y para clientes con scripts en PowerShell y Python.", "Gestionar despliegues y mantenimiento de entornos de producción en Linux.", "Administrar bases de datos, principalmente relacionales.", "Atender incidencias y gestionar mejoras para distintos proyectos de clientes.", "Mantener y migrar proyectos legacy a tecnologías actuales.", "Colaborar en la definición de arquitectura y buenas prácticas de desarrollo."],
+            "technologies": [".NET", "TypeScript", "SCSS / Bootstrap", "MS SQL Server", "Azure", "PowerShell", "Python", "Debian", "DevOps"],
             "icon": "bi-buildings"
         }
     ]

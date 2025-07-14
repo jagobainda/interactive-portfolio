@@ -350,15 +350,7 @@ body.dark #welcome-title {
 .tech-name {
     font-family: monospace;
     font-weight: bold;
-    margin-bottom: 0.5rem;
     text-align: center;
-}
-
-.tech-stars {
-    display: flex;
-    gap: 0.25rem;
-    color: gold;
-    filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.3));
 }
 
 .about-section {
@@ -737,10 +729,6 @@ body.dark #welcome-title {
     .tech-name {
         font-size: 0.9rem;
     }
-
-    .tech-stars {
-        transform: scale(0.9);
-    }
 }
 
 @media (max-width: 480px) {
@@ -840,10 +828,6 @@ body.dark #welcome-title {
 
     .tech-name {
         font-size: 0.8rem;
-    }
-
-    .tech-stars {
-        transform: scale(0.8);
     }
 }
 
@@ -990,10 +974,6 @@ body.dark #welcome-title {
         margin-bottom: 0.2rem;
     }
 
-    .tech-stars {
-        transform: scale(0.7);
-    }
-
     .close-btn {
         font-size: 1.2rem;
         top: 0.3rem;
@@ -1001,7 +981,6 @@ body.dark #welcome-title {
     }
 }
 
-/* Modal de contacto más estrecho en pantalla grande */
 .contact-modal {
     max-width: 500px;
 }
