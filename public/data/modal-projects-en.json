@@ -1,0 +1,90 @@
+{
+    "tabNames": {
+        "personal": "Personal",
+        "work": "Work",
+        "student": "Student"
+    },
+    "personal": [
+        {
+            "name": "Interactive Portfolio",
+            "description": "Personal portfolio website built with TypeScript and anime.js with multi-language support and responsive design.",
+            "tags": ["TypeScript", "Web", "CSS", "HTML"],
+            "links": [
+                {
+                    "text": "GitHub",
+                    "url": "https://github.com/jagobainda/interactive-portfolio",
+                    "icon": "bi bi-github"
+                },
+                {
+                    "text": "Live Demo",
+                    "url": "https://jagoba.dev",
+                    "icon": "bi bi-globe"
+                }
+            ]
+        },
+        {
+            "name": "Weather App",
+            "description": "Real-time weather application using OpenWeather API with geolocation features.",
+            "tags": ["JavaScript", "API", "CSS", "HTML"],
+            "links": [
+                {
+                    "text": "GitHub",
+                    "url": "https://github.com/jagobainda/weather-app",
+                    "icon": "bi bi-github"
+                }
+            ]
+        }
+    ],
+    "work": [
+        {
+            "name": "CRM System",
+            "description": "Customer relationship management system for internal business use with data visualization and reporting tools.",
+            "tags": ["React", "Node.js", "MongoDB"],
+            "links": [
+                {
+                    "text": "Details",
+                    "url": "#",
+                    "icon": "bi bi-info-circle"
+                }
+            ]
+        },
+        {
+            "name": "E-commerce Backend",
+            "description": "RESTful API for e-commerce platform with secure payment integration and inventory management.",
+            "tags": ["Node.js", "Express", "PostgreSQL", "AWS"],
+            "links": [
+                {
+                    "text": "Details",
+                    "url": "#",
+                    "icon": "bi bi-info-circle"
+                }
+            ]
+        }
+    ],
+    "student": [
+        {
+            "name": "Library Management System",
+            "description": "A desktop application for managing book inventory, user accounts, and lending history.",
+            "tags": ["Java", "MySQL", "GUI"],
+            "links": [
+                {
+                    "text": "GitHub",
+                    "url": "https://github.com/jagobainda/library-system",
+                    "icon": "bi bi-github"
+                }
+            ]
+        },
+        {
+            "name": "Data Analysis Tool",
+            "description": "Python-based tool for analyzing and visualizing large datasets with customizable parameters.",
+            "tags": ["Python", "Pandas", "Matplotlib"],
+            "links": [
+                {
+                    "text": "GitHub",
+                    "url": "https://github.com/jagobainda/data-analysis",
+                    "icon": "bi bi-github"
+                }
+            ]
+        }
+    ]
+}

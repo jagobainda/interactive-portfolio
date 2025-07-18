@@ -93,7 +93,92 @@ class App {
     }
 
     private async loadProjects(): Promise<void> {
-        // TODO
+        interface Project {
+            name: string;
+            description: string;
+            image: string;
+            tags: string[];
+            links: {
+                text: string;
+                url: string;
+                icon: string;
+            }[];
+        }
+
+        interface ProjectsData {
+            tabNames: {
+                personal: string;
+                work: string;
+                student: string;
+            };
+            personal: Project[];
+            work: Project[];
+            student: Project[];
+        }
+
+        try {
+            const res = await fetch(`/data/modal-projects-${this.lang}.json`);
+            if (!res.ok) throw new Error("Failed to load projects data");
+
+            const data: ProjectsData = await res.json();
+
+            document.getElementById("btn-personal-tab")!.textContent = data.tabNames.personal;
+            document.getElementById("btn-work-tab")!.textContent = data.tabNames.work;
+            document.getElementById("btn-student-tab")!.textContent = data.tabNames.student;
+
+            const projectsMap: Record<string, Project[]> = {
+                "personal-tab": data.personal,
+                "work-tab": data.work,
+                "student-tab": data.student
+            };
+
+            for (const [tabId, projects] of Object.entries(projectsMap)) {
+                const container = document.querySelector(`#${tabId} .project-grid`);
+                if (!container) continue;
+
+                container.innerHTML = "";
+
+                projects.forEach(project => {
+                    const projectCard = document.createElement("div");
+                    projectCard.className = "project-card";
+
+                    let linksHTML = "";
+                    project.links.forEach(link => {
+                        linksHTML += `
+                            <a href="${link.url}" class="project-link" ${link.url.startsWith("http") ? 'target="_blank"' : ""}>
+                                <i class="${link.icon}"></i>
+                                ${link.text}
+                            </a>
+                        `;
+                    });
+
+                    let tagsHTML = "";
+                    project.tags.forEach(tag => {
+                        tagsHTML += `<span class="project-tag">
+                            <i class="bi bi-check-circle-fill"></i>
+                            ${tag}
+                        </span>`;
+                    });
+
+                    projectCard.innerHTML = `
+                        <div class="project-info">
+                            <h3 class="project-name">${project.name}</h3>
+                            <p class="project-description">${project.description}</p>
+                            <div class="project-tags">
+                                ${tagsHTML}
+                            </div>
+                            <div class="project-links">
+                                ${linksHTML}
+                            </div>
+                        </div>
+                    `;
+
+                    container.appendChild(projectCard);
+                });
+            }
+        } catch (error) {
+            console.error("Failed to load projects:", error);
+        }
     }
 
     private async loadTechnologies(): Promise<void> {
@@ -358,7 +443,55 @@ class App {
         );
     }
 
-    private handleKeydown(event: KeyboardEvent): void {}
+    private handleKeydown(event: KeyboardEvent): void {
+        // Disable shortcuts when typing in input or textarea
+        if (event.target instanceof HTMLInputElement || event.target instanceof HTMLTextAreaElement) return;
+
+        switch (event.key) {
+            case "1":
+                this.handleModalShortcut("projects");
+                break;
+            case "2":
+                this.handleModalShortcut("technologies");
+                break;
+            case "3":
+                this.handleModalShortcut("experience");
+                break;
+            case "4":
+                this.handleModalShortcut("about-me");
+                break;
+            case "c":
+            case "C":
+                this.handleModalShortcut("contact");
+                break;
+            case "t":
+            case "T":
+                this.toggleTheme();
+                break;
+            case "Escape":
+                this.closeModal();
+                break;
+        }
+    }
+
+    private handleModalShortcut(modalId: string): void {
+        const currentModal = document.querySelector(".modal:not(.hidden)");
+
+        if (currentModal) {
+            const currentModalId = currentModal.id.replace("modal-", "");
+
+            if (currentModalId === modalId) {
+                this.closeModal();
+                return;
+            }
+
+            this.closeModal(false, () => {
+                this.openModal(modalId);
+            });
+        } else {
+            this.openModal(modalId);
+        }
+    }
 
     private toggleTheme(): void {
         const icon = document.querySelector("#theme-toggle i") as HTMLIFrameElement;
@@ -373,6 +506,8 @@ class App {
     }
 
     private openModal(id: string): void {
+        if ((this as any)._modalTransitionInProgress) return;
+
         const modal = document.getElementById(`modal-${id}`);
         if (!modal) return;
 
@@ -396,6 +531,7 @@ class App {
         });
 
         if (id === "technologies") this.initTechTabs();
+        if (id === "projects") this.initProjectTabs();
 
         history.pushState({ modal: id }, "", `#${id}`);
     }
@@ -423,14 +559,46 @@ class App {
         });
     }
 
-    private closeModal(skipHistory: boolean = false): void {
+    private initProjectTabs(): void {
+        const tabButtons = document.querySelectorAll(".project-tab-btn");
+
+        tabButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                const target = button.getAttribute("data-target");
+
+                document.querySelectorAll(".project-tab-btn").forEach(btn => {
+                    btn.classList.remove("active");
+                });
+
+                document.querySelectorAll(".project-tab-content").forEach(content => {
+                    content.classList.remove("active");
+                });
+
+                if (!target) return;
+
+                button.classList.add("active");
+                document.getElementById(target)?.classList.add("active");
+            });
+        });
+    }
+
+    private closeModal(skipHistory: boolean = false, callback?: () => void): void {
         const modal = document.querySelector(".modal:not(.hidden)");
-        if (!modal) return;
+        if (!modal) {
+            if (callback) callback();
+            return;
+        }
 
         const content = modal.querySelector(".modal-content");
-        if (!content) return;
+        if (!content) {
+            if (callback) callback();
+            return;
+        }
 
         anime.remove(content);
+
+        (this as any)._modalTransitionInProgress = true;
+
         anime({
             targets: content,
             translateY: [0, 20],
@@ -445,6 +613,10 @@ class App {
                 document.body.classList.remove("modal-open");
 
                 if (location.hash && !skipHistory) history.back();
+
+                (this as any)._modalTransitionInProgress = false;
+
+                if (callback) setTimeout(callback, 50);
             }
         });
     }

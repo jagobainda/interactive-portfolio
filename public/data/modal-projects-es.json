@@ -1,0 +1,90 @@
+{
+    "tabNames": {
+        "personal": "Personales",
+        "work": "Laborales",
+        "student": "Académicos"
+    },
+    "personal": [
+        {
+            "name": "Portfolio Interactivo",
+            "description": "Sitio web de portfolio personal construido con TypeScript y anime.js con soporte multilenguaje y diseño responsive.",
+            "tags": ["TypeScript", "Web", "CSS", "HTML"],
+            "links": [
+                {
+                    "text": "GitHub",
+                    "url": "https://github.com/jagobainda/interactive-portfolio",
+                    "icon": "bi bi-github"
+                },
+                {
+                    "text": "Demo",
+                    "url": "https://jagoba.dev",
+                    "icon": "bi bi-globe"
+                }
+            ]
+        },
+        {
+            "name": "App del Clima",
+            "description": "Aplicación del clima en tiempo real usando la API de OpenWeather con funciones de geolocalización.",
+            "tags": ["JavaScript", "API", "CSS", "HTML"],
+            "links": [
+                {
+                    "text": "GitHub",
+                    "url": "https://github.com/jagobainda/weather-app",
+                    "icon": "bi bi-github"
+                }
+            ]
+        }
+    ],
+    "work": [
+        {
+            "name": "Sistema CRM",
+            "description": "Sistema de gestión de relaciones con clientes para uso empresarial interno con herramientas de visualización de datos e informes.",
+            "tags": ["React", "Node.js", "MongoDB"],
+            "links": [
+                {
+                    "text": "Detalles",
+                    "url": "#",
+                    "icon": "bi bi-info-circle"
+                }
+            ]
+        },
+        {
+            "name": "Backend E-commerce",
+            "description": "API RESTful para plataforma de comercio electrónico con integración de pagos seguros y gestión de inventario.",
+            "tags": ["Node.js", "Express", "PostgreSQL", "AWS"],
+            "links": [
+                {
+                    "text": "Detalles",
+                    "url": "#",
+                    "icon": "bi bi-info-circle"
+                }
+            ]
+        }
+    ],
+    "student": [
+        {
+            "name": "Sistema de Gestión de Biblioteca",
+            "description": "Aplicación de escritorio para gestionar inventario de libros, cuentas de usuarios e historial de préstamos.",
+            "tags": ["Java", "MySQL", "GUI"],
+            "links": [
+                {
+                    "text": "GitHub",
+                    "url": "https://github.com/jagobainda/library-system",
+                    "icon": "bi bi-github"
+                }
+            ]
+        },
+        {
+            "name": "Herramienta de Análisis de Datos",
+            "description": "Herramienta basada en Python para analizar y visualizar grandes conjuntos de datos con parámetros personalizables.",
+            "tags": ["Python", "Pandas", "Matplotlib"],
+            "links": [
+                {
+                    "text": "GitHub",
+                    "url": "https://github.com/jagobainda/data-analysis",
+                    "icon": "bi bi-github"
+                }
+            ]
+        }
+    ]
+}

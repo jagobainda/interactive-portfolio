@@ -79,11 +79,26 @@
         </div>
 
         <div id="modal-projects" class="modal hidden">
-            <div class="modal-content">
+            <div class="modal-content project-modal">
                 <button class="close-btn">&times;</button>
                 <h2 id="projects-title"></h2>
+
+                <div class="project-tabs">
+                    <button class="project-tab-btn active" data-target="personal-tab" id="btn-personal-tab"></button>
+                    <button class="project-tab-btn" data-target="work-tab" id="btn-work-tab"></button>
+                    <button class="project-tab-btn" data-target="student-tab" id="btn-student-tab"></button>
+                </div>
+
                 <div class="modal-body">
-                    <!-- Dynamic content -->
+                    <div id="personal-tab" class="project-tab-content active">
+                        <div class="project-grid"></div>
+                    </div>
+                    <div id="work-tab" class="project-tab-content">
+                        <div class="project-grid"></div>
+                    </div>
+                    <div id="student-tab" class="project-tab-content">
+                        <div class="project-grid"></div>
+                    </div>
                 </div>
             </div>
         </div>
