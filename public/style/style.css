@@ -375,6 +375,7 @@ body.dark #welcome-title {
     justify-content: flex-start;
     gap: 1rem;
     margin-top: auto;
+    margin-left: 0.5rem;
 }
 
 .project-link {

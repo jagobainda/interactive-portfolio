@@ -1,4 +1,4 @@
-# 🚀 Interactive Minimal Portfolio – jagoba.dev
+# Interactive Minimal Portfolio – jagoba.dev
 
 Feel free to fork, explore, and adapt. For any questions or contributions, open an issue or submit a pull request.
 
@@ -38,22 +38,22 @@ This approach ensures that the site remains fast, lightweight, and easily audita
 
 ```
 .
-├── public/             # Static assets (HTML, CSS, JSON, images)
-│   ├── data/           # Modal content (localized)
-│   ├── dist/           # Compiled JS output (main.js)
-│   ├── imgs/favicon/   # Icons & manifest
-│   ├── language-strings/  # UI language strings
-│   └── style/          # Main stylesheet
+├── public/
+│   ├── data/
+│   ├── dist/
+│   ├── imgs/favicon/
+│   ├── language-strings/
+│   └── style/
 │
-├── src/                # Source TypeScript files
-│   └── main.ts         # App entry point
+├── src/
+│   └── main.ts
 │
-├── .vscode/            # Editor settings
-├── node_modules/       # Development dependencies
-├── LICENSE             # MIT License
-├── package.json        # Project metadata and scripts
-├── tsconfig.json       # TypeScript configuration
-└── README.md           # This file
+├── .vscode/
+├── node_modules/
+├── LICENSE
+├── package.json
+├── tsconfig.json
+└── README.md
 ```
 
 ## 📬 Deployment & CI/CD

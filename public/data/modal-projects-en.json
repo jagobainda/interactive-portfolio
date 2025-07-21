@@ -1,14 +1,50 @@
 {
     "tabNames": {
         "personal": "Personal",
-        "work": "Work",
-        "student": "Student"
+        "work": "Professional",
+        "student": "Academic"
     },
     "personal": [
         {
+            "name": "SkinHolder Desktop",
+            "description": "Desktop application to track investments in Counter-Strike skins, developed for Windows and Linux.",
+            "tags": ["WPF", ".NET Core 8.0", "C#", "XAML", "MVVM"],
+            "links": [
+                {
+                    "text": "GitHub",
+                    "url": "https://github.com/jagobainda/SkinHolderDesktop",
+                    "icon": "bi bi-github"
+                }
+            ]
+        },
+        {
+            "name": "SkinHolder App",
+            "description": "Mobile app for Android to track investments in Counter-Strike skins, developed for Android devices.",
+            "tags": ["Android Studio", "Kotlin", "MVC", "SQLite"],
+            "links": [
+                {
+                    "text": "GitHub",
+                    "url": "https://github.com/jagobainda/SkinHolderDesktop",
+                    "icon": "bi bi-github"
+                }
+            ]
+        },
+        {
+            "name": "SkinHolder API",
+            "description": "RESTful API for the SkinHolder app, acting as a bridge between different versions of SkinHolder and the database.",
+            "tags": ["ASP.NET Core 8.0", "Clean Architecture", "MySQL", "C#", "AutoMapper", "FluentValidation", "JWT"],
+            "links": [
+                {
+                    "text": "GitHub",
+                    "url": "https://github.com/jagobainda/SkinHolderAPI",
+                    "icon": "bi bi-github"
+                }
+            ]
+        },
+        {
             "name": "Interactive Portfolio",
-            "description": "Personal portfolio website built with TypeScript and anime.js with multi-language support and responsive design.",
-            "tags": ["TypeScript", "Web", "CSS", "HTML"],
+            "description": "Personal portfolio website built with TypeScript and anime.js, featuring multilingual support and responsive design.",
+            "tags": ["TypeScript", "Web", "CSS", "HTML", "Anime.js"],
             "links": [
                 {
                     "text": "GitHub",
@@ -16,72 +52,84 @@
                     "icon": "bi bi-github"
                 },
                 {
-                    "text": "Live Demo",
+                    "text": "Live",
                     "url": "https://jagoba.dev",
                     "icon": "bi bi-globe"
                 }
             ]
         },
         {
-            "name": "Weather App",
-            "description": "Real-time weather application using OpenWeather API with geolocation features.",
-            "tags": ["JavaScript", "API", "CSS", "HTML"],
+            "name": "Temporary Email Website - Analysis Phase",
+            "description": "Website that provides temporary email addresses for signing up to online services.",
+            "tags": ["TypeScript", "Web", "CSS", "HTML", "Python", "FastAPI", "Redis"],
             "links": [
                 {
-                    "text": "GitHub",
-                    "url": "https://github.com/jagobainda/weather-app",
-                    "icon": "bi bi-github"
+                    "text": "Live",
+                    "url": "https://tmp-mail.org",
+                    "icon": "bi bi-globe"
                 }
             ]
         }
     ],
     "work": [
         {
-            "name": "CRM System",
-            "description": "Customer relationship management system for internal business use with data visualization and reporting tools.",
-            "tags": ["React", "Node.js", "MongoDB"],
-            "links": [
-                {
-                    "text": "Details",
-                    "url": "#",
-                    "icon": "bi bi-info-circle"
-                }
-            ]
+            "name": "Business Process Management Tool",
+            "description": "Internal web application with a complex backend to manage workflows within the company and associated businesses. Supports task assignment, document storage, and status tracking.",
+            "tags": [".NET", "C#", "MS SQL", "TypeScript", "SCSS", "Clean Architecture"],
+            "links": []
         },
         {
-            "name": "E-commerce Backend",
-            "description": "RESTful API for e-commerce platform with secure payment integration and inventory management.",
-            "tags": ["Node.js", "Express", "PostgreSQL", "AWS"],
-            "links": [
-                {
-                    "text": "Details",
-                    "url": "#",
-                    "icon": "bi bi-info-circle"
-                }
-            ]
+            "name": "Legacy Angular Portal Migration",
+            "description": "Migration of a web portal based on AngularJS to a modern framework version. The portal allows clients and staff to check data, download reports, and communicate with the company.",
+            "tags": ["Angular", "TypeScript", "Bootstrap", ".NET", "REST API", "Clean Architecture"],
+            "links": []
+        },
+        {
+            "name": "Custom Automation Scripts for Clients",
+            "description": "Development of PowerShell scripts tailored to specific client workflows, such as report generation, user management, or file manipulation on network drives.",
+            "tags": ["PowerShell", "Automation", "Windows Server", "Active Directory"],
+            "links": []
+        },
+        {
+            "name": "SharePoint Online Automations",
+            "description": "Automation of administrative and content-related tasks in SharePoint Online using PowerShell PnP. Includes migrations, site creation, permission control, and maintenance.",
+            "tags": ["PowerShell", "PnP", "SharePoint Online", "Scripting"],
+            "links": []
+        },
+        {
+            "name": "RESTful APIs for Products and Clients",
+            "description": "Design, development, and maintenance of .NET APIs for both internal and external use. Provides services like authentication, data queries, report generation, and process management.",
+            "tags": [".NET", "C#", "REST", "Insomnia", "JWT", "MS SQL", "Clean Architecture"],
+            "links": []
+        },
+        {
+            "name": "Client Dashboards",
+            "description": "Creation of simple dashboards to visually display key client data. Information is retrieved in real time through internal APIs.",
+            "tags": ["TypeScript", "HTML", "CSS", "Chart.js", "REST APIs"],
+            "links": []
+        },
+        {
+            "name": "Post-Sales Product for Construction Companies",
+            "description": "Internally developed product for managing post-sale incidents for construction firms. Facilitates communication between end customers, construction companies, and workers.",
+            "tags": [".NET", "TypeScript", "MS SQL", "C#", "Incident Management", "Clean Architecture"],
+            "links": []
         }
     ],
     "student": [
         {
-            "name": "Library Management System",
-            "description": "A desktop application for managing book inventory, user accounts, and lending history.",
-            "tags": ["Java", "MySQL", "GUI"],
-            "links": [
-                {
-                    "text": "GitHub",
-                    "url": "https://github.com/jagobainda/library-system",
-                    "icon": "bi bi-github"
-                }
-            ]
+            "name": "Final Degree Project – Full DDoS Network (Private)",
+            "description": "Final project combining programming and cybersecurity. Implements a complete system: from the attacker's control panel and C&C server to the malware infecting the victims. The project aims to stand out through originality and a diverse, well-chosen tech stack.",
+            "tags": ["CSS & JavaScript", "Tails Linux", "Shell", "Python", "Rust (discarded)", "C#", ".NET Framework"],
+            "links": []
         },
         {
-            "name": "Data Analysis Tool",
-            "description": "Python-based tool for analyzing and visualizing large datasets with customizable parameters.",
-            "tags": ["Python", "Pandas", "Matplotlib"],
+            "name": "SkinHolder Console App – Deprecated",
+            "description": "First version of SkinHolder, developed when I first started programming in Java. Now deprecated and no longer maintained.",
+            "tags": ["Java", "XML"],
             "links": [
                 {
                     "text": "GitHub",
-                    "url": "https://github.com/jagobainda/data-analysis",
+                    "url": "https://github.com/jagobainda/SkinHolderJava",
                     "icon": "bi bi-github"
                 }
             ]
