@@ -8,7 +8,7 @@
         {
             "name": "SkinHolder Desktop",
             "description": "Desktop application to track investments in Counter-Strike skins, developed for Windows and Linux.",
-            "tags": ["WPF", ".NET Core 8.0", "C#", "XAML", "MVVM"],
+            "tags": ["WPF", ".NET Core 8.0", "C#", "XAML", "MVVM", "Velopack"],
             "links": [
                 {
                     "text": "GitHub",
@@ -38,6 +38,11 @@
                     "text": "GitHub",
                     "url": "https://github.com/jagobainda/SkinHolderAPI",
                     "icon": "bi bi-github"
+                },
+                {
+                    "text": "Live",
+                    "url": "https://shapi.jagoba.dev",
+                    "icon": "bi bi-globe"
                 }
             ]
         },
