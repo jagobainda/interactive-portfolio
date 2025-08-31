@@ -64,6 +64,23 @@
             ]
         },
         {
+            "name": "Extensión de Chrome para CSWatch",
+            "description": "Extensión de Chrome oficial contruida para CSWatch la cual muestra las estadísticas de la página directamente en el perfil de Steam.",
+            "tags": ["JavaScript", "CSS", "HTML", "Extensión Chrome", "Shell"],
+            "links": [
+                {
+                    "text": "GitHub",
+                    "url": "https://github.com/jagobainda/CSWatchChromeExtension",
+                    "icon": "bi bi-github"
+                },
+                {
+                    "text": "Producción",
+                    "url": "https://jagoba.dev",
+                    "icon": "bi bi-globe"
+                }
+            ]
+        },
+        {
             "name": "Web de Emails Temporales - Fase analisis",
             "description": "Sitio web que proporciona correos electrónicos temporales para registro en servicios web.",
             "tags": ["TypeScript", "Web", "CSS", "HTML", "Python", "FastAPI", "Redis"],
