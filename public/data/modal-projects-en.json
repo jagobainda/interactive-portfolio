@@ -14,6 +14,11 @@
                     "text": "GitHub",
                     "url": "https://github.com/jagobainda/SkinHolderDesktop",
                     "icon": "bi bi-github"
+                },
+                {
+                    "text": "Download installer",
+                    "url": "https://cdn.jagoba.dev/downloads/skinholder-desktop-latest/SkinHolderDesktop-win-Setup.exe",
+                    "icon": "bi bi-download"
                 }
             ]
         },
