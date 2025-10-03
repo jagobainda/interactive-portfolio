@@ -79,9 +79,14 @@
                     "icon": "bi bi-github"
                 },
                 {
-                    "text": "Chrome Store",
+                    "text": "Chrome",
                     "url": "https://chromewebstore.google.com/detail/cswatch-stats-viewer/nklafihgaifhoahbfcfiaemfmpoplkch",
                     "icon": "bi bi-browser-chrome"
+                },
+                {
+                    "text": "Firefox",
+                    "url": "https://addons.mozilla.org/en-US/firefox/addon/cswatch/",
+                    "icon": "bi bi-browser-firefox"
                 }
             ]
         },
