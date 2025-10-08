@@ -52,26 +52,9 @@
             ]
         },
         {
-            "name": "Portfolio Interactivo",
-            "description": "Sitio web de portfolio personal construido con TypeScript y anime.js con soporte multilenguaje y diseño responsive.",
-            "tags": ["TypeScript", "Web", "CSS", "HTML", "Anime.js"],
-            "links": [
-                {
-                    "text": "GitHub",
-                    "url": "https://github.com/jagobainda/interactive-portfolio",
-                    "icon": "bi bi-github"
-                },
-                {
-                    "text": "Producción",
-                    "url": "https://jagoba.dev",
-                    "icon": "bi bi-globe"
-                }
-            ]
-        },
-        {
             "name": "Extensión de Chrome para CSWatch",
             "description": "Extensión de Chrome oficial contruida para CSWatch la cual muestra las estadísticas de la página directamente en el perfil de Steam.",
-            "tags": ["JavaScript", "CSS", "HTML", "Extensión Chrome", "Shell"],
+            "tags": ["JavaScript", "CSS", "HTML", "Extensión / Addon", "Shell"],
             "links": [
                 {
                     "text": "GitHub",
@@ -87,6 +70,23 @@
                     "text": "Firefox",
                     "url": "https://addons.mozilla.org/en-US/firefox/addon/cswatch/",
                     "icon": "bi bi-browser-firefox"
+                }
+            ]
+        },
+        {
+            "name": "Portfolio Interactivo",
+            "description": "Sitio web de portfolio personal construido con TypeScript y anime.js con soporte multilenguaje y diseño responsive.",
+            "tags": ["TypeScript", "Web", "CSS", "HTML", "Anime.js"],
+            "links": [
+                {
+                    "text": "GitHub",
+                    "url": "https://github.com/jagobainda/interactive-portfolio",
+                    "icon": "bi bi-github"
+                },
+                {
+                    "text": "Producción",
+                    "url": "https://jagoba.dev",
+                    "icon": "bi bi-globe"
                 }
             ]
         },

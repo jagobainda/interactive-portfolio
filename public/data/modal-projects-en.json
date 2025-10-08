@@ -52,26 +52,9 @@
             ]
         },
         {
-            "name": "Interactive Portfolio",
-            "description": "Personal portfolio website built with TypeScript and anime.js, featuring multilingual support and responsive design.",
-            "tags": ["TypeScript", "Web", "CSS", "HTML", "Anime.js"],
-            "links": [
-                {
-                    "text": "GitHub",
-                    "url": "https://github.com/jagobainda/interactive-portfolio",
-                    "icon": "bi bi-github"
-                },
-                {
-                    "text": "Live",
-                    "url": "https://jagoba.dev",
-                    "icon": "bi bi-globe"
-                }
-            ]
-        },
-        {
             "name": "Chrome Extension for CSWatch",
             "description": "Official Chrome extension built for CSWatch that displays the website's statistics directly on the Steam profile.",
-            "tags": ["JavaScript", "CSS", "HTML", "Chrome Extension", "Shell"],
+            "tags": ["JavaScript", "CSS", "HTML", "Extension / Addon", "Shell"],
             "links": [
                 {
                     "text": "GitHub",
@@ -87,6 +70,23 @@
                     "text": "Firefox",
                     "url": "https://addons.mozilla.org/en-US/firefox/addon/cswatch/",
                     "icon": "bi bi-browser-firefox"
+                }
+            ]
+        },
+        {
+            "name": "Interactive Portfolio",
+            "description": "Personal portfolio website built with TypeScript and anime.js, featuring multilingual support and responsive design.",
+            "tags": ["TypeScript", "Web", "CSS", "HTML", "Anime.js"],
+            "links": [
+                {
+                    "text": "GitHub",
+                    "url": "https://github.com/jagobainda/interactive-portfolio",
+                    "icon": "bi bi-github"
+                },
+                {
+                    "text": "Live",
+                    "url": "https://jagoba.dev",
+                    "icon": "bi bi-globe"
                 }
             ]
         },
