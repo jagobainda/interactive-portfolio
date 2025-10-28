@@ -2,6 +2,8 @@
     "technologies": [
         { "icon": "devicon-csharp-plain", "name": ".NET / C#" },
         { "icon": "devicon-typescript-plain", "name": "TS / JS" },
+        { "icon": "devicon-react-original", "name": "React" },
+        { "icon": "devicon-tailwindcss-original", "name": "Tailwind CSS" },
         { "icon": "devicon-bootstrap-plain", "name": "CSS / Bootstrap" },
         { "icon": "devicon-powershell-plain", "name": "PowerShell" },
         { "icon": "devicon-mysql-plain", "name": "MySQL" },
