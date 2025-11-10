@@ -23,6 +23,23 @@
             ]
         },
         {
+            "name": "SkinHolder Web",
+            "description": "Aplicación web destinada a trackear inversiones en skins de Counter-Strike.",
+            "tags": ["React", "Tailwind", "TypeScript", "Arquitectura limpia"],
+            "links": [
+                {
+                    "text": "GitHub",
+                    "url": "https://github.com/jagobainda/SkinHolderWeb",
+                    "icon": "bi bi-github"
+                },
+                {
+                    "text": "Producción",
+                    "url": "https://skinholder.jagoba.dev",
+                    "icon": "bi bi-globe"
+                }
+            ]
+        },
+        {
             "name": "SkinHolder App",
             "description": "Aplicación móvil para Android destinada a trackear inversiones en skins de Counter-Strike desarrollada para Android.",
             "tags": ["Android Studio", "Kotlin", "MVC", "SQLite"],
