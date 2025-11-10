@@ -384,67 +384,40 @@ class App {
         if (!el) return;
 
         const base = " Jagoba Inda ~$ ";
-        const fake = "Full sta";
-        const real = "Backend Developer";
+        const text = "Full Stack Developer";
         const visitedKey = "jagoba_dev_visited";
 
-        const randomDelay = () => Math.floor(Math.random() * 21) + 40;
+        const randomDelay = () => Math.floor(Math.random() * 81) + 60;
 
-        const write = (text: string, done: () => void) => {
+        const write = (fullText: string, done: () => void) => {
             let i = 0;
             const step = () => {
-                if (i > text.length) {
+                if (i > fullText.length) {
                     done();
                     return;
                 }
 
-                el.textContent += text.charAt(i++);
-                setTimeout(step, randomDelay());
-            };
-            step();
-        };
-
-        const erase = (count: number, done: () => void) => {
-            let removed = 0;
-            const step = () => {
-                if (removed >= count) {
-                    done();
-                    return;
-                }
-
-                el.textContent = el.textContent!.slice(0, -1);
-                removed++;
+                el.textContent += fullText.charAt(i++);
                 setTimeout(step, randomDelay());
             };
             step();
         };
 
         const finalize = () => {
-            el.textContent = base + real;
+            el.textContent = base + text;
         };
 
-        const isDevelopment: boolean = !window.location.hostname.includes("jagoba.dev");
-
-        if (!isDevelopment && localStorage.getItem(visitedKey)) {
+        if (localStorage.getItem(visitedKey)) {
             finalize();
             return;
         }
 
         el.textContent = "";
 
-        write(base + fake, () =>
-            setTimeout(
-                () =>
-                    erase(fake.length, () => {
-                        write(real, () => localStorage.setItem(visitedKey, "true"));
-                    }),
-                500
-            )
-        );
+        write(base + text, () => localStorage.setItem(visitedKey, "true"));
     }
 
     private handleKeydown(event: KeyboardEvent): void {
-        // Disable shortcuts when typing in input or textarea
         if (event.target instanceof HTMLInputElement || event.target instanceof HTMLTextAreaElement) return;
 
         switch (event.key) {
